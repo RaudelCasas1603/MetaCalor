@@ -6,6 +6,11 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      name: '',
+      email: '',
+      weight: '',
+      age: '',
+      imc: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -17,6 +22,7 @@ class Login extends Component {
       [name]: value,
     });
   }
+
 
   handleLogin() {
     // Aquí puedes agregar lógica para verificar las credenciales del usuario
