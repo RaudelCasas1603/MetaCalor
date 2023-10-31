@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 export default function Welcome() {
@@ -7,6 +8,7 @@ export default function Welcome() {
         <a href="/login">Iniciar sesión</a>
         <br />  
         <a href="/signup">Crear cuenta</a>
+        <button class="btn btn-success">Hola</button>
     </div>
   )
 }
