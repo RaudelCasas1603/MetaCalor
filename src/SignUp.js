@@ -11,6 +11,7 @@ class SignUp extends Component {
       weight: '',
       height: '',
       age: '',
+      avatar: '',
       imc: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,11 +26,11 @@ class SignUp extends Component {
   }
 
   handleSignUp() {
-    const { username, password, name, email, weight, height, age, imc } = this.state;
+    const { username, password, name, email, weight, height, age, avatar, imc } = this.state;
 
     // Construir la URL con parámetros de consulta
-    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}`;
-    if (!username || !password || !name || !email || !weight || !height || !age) {
+    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}&avatar=${avatar}`;
+    if (!username || !password || !name || !email || !weight || !height || !age || !avatar) {
       alert('Por favor, complete todos los campos.');
       return; // No realizar la solicitud si faltan campos
     }
@@ -113,6 +114,15 @@ class SignUp extends Component {
             name="age"
             placeholder="Edad"
             value={this.state.age}
+            onChange={this.handleInputChange}
+          />
+        </div>
+        <div>
+          <input
+            type="url"
+            name="avatar"
+            placeholder='Avatar'
+            value={this.state.avatar}
             onChange={this.handleInputChange}
           />
         </div>

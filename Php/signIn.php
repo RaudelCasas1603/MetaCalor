@@ -11,11 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $Peso = $_GET['peso'];
     $Estatura = $_GET['estatura'];
     $Edad = $_GET['edad'];
+    $Avatar = $_GET['avatar'];
 
     $resultado = "";
 
-    $sql = "INSERT INTO Usuario(Nombre, Correo, Contrasenia, Nickname, Peso, Estatura, Edad) 
-            VALUES('$Nombre', '$Correo', '$Pass', '$NickName', '$Peso', '$Estatura', '$Edad')";
+    $sql = "INSERT INTO Usuario(Nombre, Correo, Contrasenia, Nickname, Peso, Estatura, Edad, Avatar) 
+            VALUES('$Nombre', '$Correo', '$Pass', '$NickName', '$Peso', '$Estatura', '$Edad', '$Avatar')";
     $query = mysqli_query($conn, $sql);
 
     if ($query) {
