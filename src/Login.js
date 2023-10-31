@@ -23,6 +23,21 @@ class Login extends Component {
     // Por ahora, simplemente mostraremos los datos ingresados en la consola.
     console.log('Usuario:', this.state.username);
     console.log('Contraseña:', this.state.password);
+    const { username, password } = this.state;
+    const url = `https://metacalor-e.000webhostapp.com/Access/login.php?nickname=${username}&passwd=${password}`;
+    if(!username || !password){
+      alert('Por favor, complete todos los campos.');
+      return;
+    }
+
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+      })
+      .catch(error => {
+        console.error('Error al enviar la solicitud:', error);
+      });
   }
 
   render() {
