@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Spline from '@splinetool/react-spline';
 
@@ -9,6 +10,7 @@ export default function Welcome() {
         <a href="/login">Iniciar sesión</a>
         <br />  
         <a href="/signup">Crear cuenta</a>
+        <button class="btn btn-success">Hola</button>
     </div>
   )
 }
