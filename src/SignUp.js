@@ -26,10 +26,11 @@ class SignUp extends Component {
   }
 
   handleSignUp() {
-    const { username, password, name, email, weight, height, age, avatar, imc } = this.state;
+    const { username, password, name, email, weight, height, age, avatar} = this.state;
 
     // Construir la URL con parámetros de consulta
-    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}&avatar=${avatar}`;
+    const imc = weight / (height * height);
+    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}&avatar=${avatar}&imc=${imc}`;
     if (!username || !password || !name || !email || !weight || !height || !age || !avatar) {
       alert('Por favor, complete todos los campos.');
       return; // No realizar la solicitud si faltan campos
