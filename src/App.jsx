@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importa Routes en lugar de Switch
 
-import Welcome from './Screens/Welcome';
+import Welcome from './components/Welcome';
 import Login from './Screens/Login';
 import SignUp from './Screens/SignUp';
 import Navbar from './components/Navbar';
@@ -21,7 +21,7 @@ function App() {
   
       <div>
         <Routes>
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
