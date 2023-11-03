@@ -19,7 +19,7 @@ import {
   
     return (
       <>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: '#34495E'}}>
           <Toolbar>
             <IconButton
               color="inherit"
