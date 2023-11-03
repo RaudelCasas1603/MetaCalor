@@ -1,10 +1,11 @@
 import React from 'react'
-import './Welcome.css'
+import Spline from '@splinetool/react-spline';
 
 export default function Welcome() {
   return (
     <div>
-        <h1>METACALOR!</h1>
+        <Spline scene="https://prod.spline.design/qigPQzdTK7kWSHXR/scene.splinecode" />
+        <h1>¡Bienvenido!</h1>
         <a href="/login">Iniciar sesión</a>
         <br />  
         <a href="/signup">Crear cuenta</a>

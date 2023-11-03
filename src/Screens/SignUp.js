@@ -11,6 +11,10 @@ class SignUp extends Component {
       weight: '',
       height: '',
       age: '',
+      sexo:{
+        masculino:false,
+        femenino:false,
+      },
       avatar: '',
       imc: '',
     };
@@ -25,11 +29,38 @@ class SignUp extends Component {
     });
   }
 
-  handleSignUp() {
-    const { username, password, name, email, weight, height, age, avatar, imc } = this.state;
+  handleCheckBox=(event)=>{
+    const{name, checked} = event.target;
+    if(name=== 'masculino' && checked){
+      this.setState(prevState =>({
+        sexo:{
+          masculino:true,
+          femenino: false
+        }
+      }));
+    }else if (name=== 'femenino' && checked){
+      this.setState(prevState =>({
+        sexo:{
+          masculino:false,
+          femenino: true
+        }
+      }));
+    }else{
+      this.setState(prevState => ({
+        sexo: {
+          masculino: false,
+          femenino: false
+        }
+      }));
+    }
+  };
 
+  handleSignUp() {
+    const { username, password, name, email, weight, height, age, avatar, sexo} = this.state;
+    const opciones = sexo.masculino ? "Masculino" : "Femenino";
     // Construir la URL con parámetros de consulta
-    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}&avatar=${avatar}`;
+    const imc = weight / (height * height);
+    const url = `https://metacalor-e.000webhostapp.com/Access/signUp.php?nombre=${name}&correo=${email}&passwd=${password}&nickname=${username}&peso=${weight}&estatura=${height}&edad=${age}&sexo=${opciones}&avatar=${avatar}&imc=${imc}`;
     if (!username || !password || !name || !email || !weight || !height || !age || !avatar) {
       alert('Por favor, complete todos los campos.');
       return; // No realizar la solicitud si faltan campos
@@ -107,6 +138,28 @@ class SignUp extends Component {
             value={this.state.height}
             onChange={this.handleInputChange}
           />
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              name="masculino"
+              checked={this.state.sexo.masculino}
+              onChange={this.handleCheckBox}
+            />
+            Masculino
+          </label>
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              name="femenino"
+              checked={this.state.sexo.femenino}
+              onChange={this.handleCheckBox}
+            />
+            Femenino
+          </label>
         </div>
         <div>
           <input
