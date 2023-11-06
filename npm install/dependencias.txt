@@ -1,9 +1,14 @@
+// Dependencia de rutas 
 npm install react-router-dom react-router
+
+//Diseño 
 npm install bootstrap
 npm install react-scripts
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/material @mui/styled-engine-sc styled-components
 npm install @fontsource/roboto
 npm install @mui/icons-material
+
+//Dependencias para generar pdf
 npm install jspdf
 npm install jspdf-autotable
