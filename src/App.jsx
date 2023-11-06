@@ -7,6 +7,7 @@ import SignUp from './Screens/SignUp';
 import Navbar from './components/Navbar';
 import Footer from './components/footer';
 import Ranking from './components/Ranking';
+import Report from './components/Report';
 
 const navArrayLinks = [
   { title: "Home", path: "/" },
