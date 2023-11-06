@@ -1,32 +1,34 @@
 <?php
 include_once("config.php");
+header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Comprueba si se han recibido datos por GET
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Datos a insertar
-    $Nombre = $_GET['nombre'];
-    $Correo = $_GET['correo'];
-    $Pass = md5($_GET['passwd']);
-    $NickName = $_GET['nickname'];
-    $Peso = $_GET['peso'];
-    $Estatura = $_GET['estatura'];
-    $Edad = $_GET['edad'];
-    $Avatar = $_GET['avatar'];
+// Verifica que se hayan enviado datos POST
+if ($_POST) {
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $fullName = $firstName . " " . $lastName;
+    $userName = $_POST["username"];
+    $email = isset($_POST["email"]) ? $_POST["email"] : null; // Verifica si se envió el correo electrónico
+    $password = md5($_POST["password"]);
 
-    $resultado = "";
+    // Verifica que el correo electrónico no sea nulo antes de intentar la inserción
+    if ($email !== null) {
+        $sql = "INSERT INTO Usuario(Nombre, Correo, Contrasenia, Nickname) 
+                VALUES(?,?,?,?)";
+        $sentencia_agregar = $pdo->prepare($sql);
 
-    $sql = "INSERT INTO Usuario(Nombre, Correo, Contrasenia, Nickname, Peso, Estatura, Edad, Avatar) 
-            VALUES('$Nombre', '$Correo', '$Pass', '$NickName', '$Peso', '$Estatura', '$Edad', '$Avatar')";
-    $query = mysqli_query($conn, $sql);
-
-    if ($query) {
-        $resultado = "Registro completado con éxito";
-        echo $resultado;
+        try {
+            $sentencia_agregar->execute(array($fullName, $email, $password, $userName));
+            echo json_encode(['success' => true, 'message' => 'Usuario agregado correctamente', 'redirect' => '/home']);
+        } catch (PDOException $e) {
+            echo json_encode(['success' => false, 'message' => 'Error al agregar el usuario: ' . $e->getMessage()]);
+        }
     } else {
-        $resultado = "Error al insertar los datos, intenta de nuevo";
-        echo $resultado;
+        echo json_encode(['success' => false, 'message' => 'El correo electrónico no puede ser nulo']);
     }
 } else {
-    echo "Solicitud no válida"; // Opcional: mensaje de error si no se recibe una solicitud GET
+    echo json_encode(['success' => false, 'message' => 'No se recibieron datos POST']);
 }
 ?>

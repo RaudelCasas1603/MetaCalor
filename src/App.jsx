@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
+import Main from './Screens/Main';
 
 const navArrayLinks = [
   { title: "Home", path: "/" },
@@ -26,7 +27,9 @@ function App() {
           <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/ranking" element={<Ranking />}/>
+          <Route path="/Report" element={<Report />}/>
         </Routes>
         <Footer/>
       </div>

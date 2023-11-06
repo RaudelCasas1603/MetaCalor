@@ -12,3 +12,7 @@ npm install @mui/icons-material
 //Dependencias para generar pdf
 npm install jspdf
 npm install jspdf-autotable
+
+//Hacer solicitud POST
+npm install axios
+
