@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
+export default function SignUp({setLoggedIn}) {
 
   const navigate = useNavigate();
 
@@ -39,6 +39,7 @@ export default function SignUp() {
         console.log('Registro exitoso');
         if (response.data.redirect) {
           // Redirige a la página especificada
+          setLoggedIn(true);
           navigate('/main');
         }
       } else {
