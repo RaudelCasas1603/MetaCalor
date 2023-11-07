@@ -29,40 +29,40 @@ export default function Report() {
       };
 
     return (
-        <div className="body">
-      <main className="table">
-        <section className="table__header">
-          <h1>Reporte</h1>
-        </section>
-        <section className="table__content">
-          <table className="center-table">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Carbohidratos</th>
-                <th>Proteinas</th>
-                <th>Grasas</th>
-                <th>Estatus</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reportData.map((data, index) => (
-                <tr key={index}>
-                  <td>{data.fecha}</td>
-                  <td>{data.carbohidratos}</td>
-                  <td>{data.proteinas}</td>
-                  <td>{data.grasas}</td>
-                  <td>{data.estado}</td>
+      <div className="body">
+        <main className="table">
+          <section className="table__header">
+            <h1>Reporte</h1>
+          </section>
+          <section className="table__content">
+            <table className="center-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Carbohidratos</th>
+                  <th>Proteinas</th>
+                  <th>Grasas</th>
+                  <th>Estatus</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="button-container">
-          <button className="pdf-button" onClick={generatePDF}>Generar PDF</button>
+              </thead>
+              <tbody>
+                {reportData.map((data, index) => (
+                  <tr key={index}>
+                    <td>{data.fecha}</td>
+                    <td>{data.carbohidratos}</td>
+                    <td>{data.proteinas}</td>
+                    <td>{data.grasas}</td>
+                    <td>{data.estado}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="button-container">
+            <button className="pdf-button" onClick={generatePDF}>Generar PDF</button>
 
-          </div>
-        </section>
-      </main>
+            </div>
+          </section>
+        </main>
     </div>
 
     );
