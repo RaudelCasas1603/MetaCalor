@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+}
+
+.title{
+    margin: 30px;
+}
+
+.center-table{
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
