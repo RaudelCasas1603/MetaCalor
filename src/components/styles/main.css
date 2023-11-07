@@ -1,0 +1,50 @@
+@import '@fontsource/roboto';
+
+.posicion-carbo{
+    top: 100px;
+    left: 45px;
+}
+
+.posicion-grasa{
+    top: 240px;
+    left: 45px;
+}
+
+.posicion-prote{
+    top: 375px;
+    left: 40px;
+}
+
+.macro-1{
+    top: 205px;
+    left: 37px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.macro-2{
+    top: 347px;
+    left: 65px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.macro-3{
+    top: 490px;
+    left: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.rankingBottom{
+    top: 105px;
+    right: 75px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

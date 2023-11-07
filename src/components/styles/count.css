@@ -1,0 +1,32 @@
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+  
+  .big-circle {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background-color: #34495E ;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .small-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: #22303E ;
+    z-index: 2;
+  }
+
+  .mt-custom{
+    margin-top: 5rem;
+  }
+
+  .display-custom{
+    font-size: 5.2rem;
+  }
+  

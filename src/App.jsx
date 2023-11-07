@@ -20,14 +20,14 @@ const navArrayLinks = [ //Links para navbar sin loguear
 ];
 
 const navArrayLinks2 = [ //Links para navbar ya logueado
-  { title: "Menu", path: "/main" }
+  { title: "Menu", path: "/main" },
+  { title: "Configuracion", path: "/configuracion" }
 ];
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
-
   return (
     <Router>
     <>
@@ -38,11 +38,11 @@ function App() {
           <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
-          <Route path="/main" element={<Main />} />
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
           <Route path='/goals' element={<Goals />}/>
           <Route path='/profile' element={<Profile />}/>
+          <Route path="/Main" element={<Main/>}/>
         </Routes>
         <Footer/>
       </div>
