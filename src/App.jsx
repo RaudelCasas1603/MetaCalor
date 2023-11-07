@@ -10,6 +10,8 @@ import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
+import Goals from './components/Goal'
+import Profile from './components/Profile'
 
 const navArrayLinks = [ //Links para navbar sin loguear
   { title: "Home", path: "/" },
@@ -38,6 +40,8 @@ function App() {
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
+          <Route path='/goals' element={<Goals />}/>
+          <Route path='/profile' element={<Profile />}/>
           <Route path="/Main" element={<Main/>}/>
         </Routes>
         <Footer/>

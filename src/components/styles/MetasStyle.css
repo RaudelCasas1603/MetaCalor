@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+}
+
+.title {
+    margin: 30px;
+}
+
+/* Aplicar bordes redondeados a las celdas de la tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+/* Aplicar bordes redondeados a las esquinas de la tabla */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px; /* Aplicar bordes redondeados a la tabla */
+}
+
+.center-table {
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.button-bar {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly; /* Espacio equitativo entre los botones */
+    margin-bottom: 20px;
+    width: 70%;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+}
+
+.button-bar button {
+    display: inline-block; /* Mostrar los botones en la misma línea */
+    /* Ajustar el margen a tu preferencia */
+    margin: 0 50px; /* Por ejemplo, 10px de espacio entre los botones */
+    border-radius: 30px;
+    height: 90px;
+    width: 80px;
+}
