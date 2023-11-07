@@ -18,6 +18,10 @@ export default function Metas(){
             <div className="title">
                 <h1>Metas</h1>
             </div>
+            <div className="button-bar">
+                <button>Logo Editar</button>
+                <button>Logo Agregar</button>
+            </div>
             <div>
                 <table className="center-table">
                 <thead>

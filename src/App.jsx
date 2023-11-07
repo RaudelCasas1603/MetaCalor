@@ -10,7 +10,7 @@ import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
-
+import Metas from './components/Metas';
 const navArrayLinks = [ //Links para navbar sin loguear
   { title: "Home", path: "/" },
   { title: "Iniciar sesión", path: "/login" },
