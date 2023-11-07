@@ -1,0 +1,92 @@
+.barraBotones{
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #34495E;
+    margin-left: 150px;
+    margin-right: 120px;
+    margin-top: 80px;
+    height: 120px;
+    border-radius: 100px;
+}
+
+.linea-vertical {
+    position: absolute;
+    height: 80px;
+    top: 20px;
+    bottom: 0;
+    width: 2px; /* Grosor de la línea */
+    background-color: white; /* Color de la línea */
+    right: 30%; /* Posición horizontal centrada */
+    transform: translateX(50%); /* Centra la línea correctamente */
+  }
+  .linea-vertical2 {
+    position: absolute;
+    height: 80px;
+    top: 20px;
+    bottom: 0;
+    width: 2px; /* Grosor de la línea */
+    background-color: white; /* Color de la línea */
+    left: 30%; /* Posición horizontal centrada */
+    transform: translateX(50%); /* Centra la línea correctamente */
+  }
+a{
+    line-height: 80px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+a:hover{
+    background-color: aliceblue;
+    border-radius: 20px;
+    background-color: rgba(99, 124, 134, 0.555);
+}
+  .reportes{
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    height: 80px;
+    top: 20px;
+    left: 8%;
+    text-decoration: none;
+  }
+  .calorias{
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    height: 80px;
+    top: 20px;
+    left: 42%;
+    text-decoration: none;
+  }
+  .platillos{
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    height: 80px;
+    top: 20px;
+    right: 8%;
+    text-decoration: none;
+  }
+.image1{
+    position: relative;
+    bottom: 40px;
+    left: 60px;
+}
+
+.barraRanking{
+    position: absolute;
+    background-color: #34495E;
+    width: 80px;
+    height: 330px;
+    right: 5%;
+    top: 23%;
+    border-radius: 100px;
+}
