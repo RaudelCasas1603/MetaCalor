@@ -9,7 +9,7 @@ import imagen3 from '../components/images/platilloIcon.png';
 const Bottoms = () => {
     return(
         <div className="d-flex justify-content-center align-items-center barraBotones">
-            <a href="./components/Report" className='reportes'>
+            <a href="Report" className='reportes'>
                 <img className="position-absolute image1" width={'40px'} src={imagen1}/>
                 Generar reporte
             </a>
