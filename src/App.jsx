@@ -10,7 +10,7 @@ import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
-import Goals from './components/Goal'
+import Meta from './components/Metas'
 import Profile from './components/Profile'
 
 const navArrayLinks = [ //Links para navbar sin loguear
@@ -41,7 +41,7 @@ function App() {
           <Route path="/main" element={<Main />} />
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
-          <Route path='/goals' element={<Goals />}/>
+          <Route path='/metas' element={<Meta />}/>
           <Route path='/profile' element={<Profile />}/>
         </Routes>
         <Footer/>
