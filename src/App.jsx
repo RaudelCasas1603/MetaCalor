@@ -13,6 +13,7 @@ import Main from './Screens/Main';
 import Profile from './components/Profile'
 import FoodRecord from './Screens/FoodRecord';
 import FoodRegister from './components/foodregister';
+import FoodAdd from './components/foodAdd';
 
 const navArrayLinks = [ //Links para navbar sin loguear
   { title: "Home", path: "/" },
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Main" element={<Main/>}/>
           <Route path='/FoodRecord' element={<FoodRecord/>}/>
           <Route path='/FoodRegister' element={<FoodRegister/>} />
+          <Route path='/FoodAdd' element={<FoodAdd/>} />
         </Routes>
         <Footer/>
       </div>
