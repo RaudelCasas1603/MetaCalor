@@ -1,0 +1,102 @@
+.container{
+    display: flex;
+}
+
+.Text{
+    flex:1;
+    padding:20px;
+}
+.Text__title{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 70px;
+    margin-bottom: 30px;
+}
+
+.Text__text{
+    font-size: 20px;
+    text-align: center;
+    margin: 3%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.Text__tips{
+    font-size: 40px;
+    text-align: center;
+    margin: 3%;
+    font-weight: bold;
+    margin-bottom: 80px;
+
+}
+
+.Image{
+    display : flex;
+    flex:1;
+    padding: 20px;
+    text-align: center;
+    border:3px solid black;
+    border-radius: 15px;
+    margin: 70px;
+    padding-top: 40px;
+
+}
+
+.Image__customFood{
+    flex:1;
+    padding: 20px;
+}
+
+.Image__customFood--img{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.VerticalLine {
+    border-left: 2px solid black; /* Ajusta el grosor y color según tus preferencias */
+    height: 80%; /* La altura de la línea será igual a la altura de los divs de imagen */
+    margin: 0 20px; /* Añade margen a ambos lados para separar la línea de las imágenes */
+    margin-top: 30px;
+  }
+  
+
+.Image__Food{
+    flex:1;
+    padding: 20px;
+}
+
+.Image__Food--img{
+    padding-top: 15px;
+    width: 235px;
+    height: 235px;
+    border-radius: 15px;
+}
+
+button{
+    background-color: #34495E;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 4%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.Image__customFood--text{
+    padding: 15px 20px;
+    width: 230px;
+    margin: 30px auto;
+}
+
+.Image__Food--text{
+    padding: 15px 20px;
+    width: 230px;
+    margin: 15px auto;
+}

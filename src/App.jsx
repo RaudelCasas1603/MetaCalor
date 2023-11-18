@@ -10,8 +10,8 @@ import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
-import Meta from './components/Metas'
 import Profile from './components/Profile'
+import FoodRecord from './Screens/FoodRecord';
 
 const navArrayLinks = [ //Links para navbar sin loguear
   { title: "Home", path: "/" },
@@ -20,14 +20,14 @@ const navArrayLinks = [ //Links para navbar sin loguear
 ];
 
 const navArrayLinks2 = [ //Links para navbar ya logueado
-  { title: "Menu", path: "/main" }
+  { title: "Menu", path: "/main" },
+  { title: "Configuracion", path: "/configuracion" }
 ];
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
-
   return (
     <Router>
     <>
@@ -35,14 +35,14 @@ function App() {
   
       <div>
         <Routes>
-          <Route path="/" element={<Welcome/>} />
+          <Route path="/" element={<FoodRecord/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
-          <Route path="/main" element={<Main />} />
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
-          <Route path='/metas' element={<Meta />}/>
           <Route path='/profile' element={<Profile />}/>
+          <Route path="/Main" element={<Main/>}/>
+          <Route path='/FoodRecord' element={<FoodRecord/>}/>
         </Routes>
         <Footer/>
       </div>

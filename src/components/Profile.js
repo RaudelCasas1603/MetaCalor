@@ -1,7 +1,7 @@
 import React from "react";
 import ImagenUsuario from './images/imagen_usuario.png';
 import './styles/ProfileStyle.css'
-import { Margin } from "@mui/icons-material";
+//import { Margin } from "@mui/icons-material";
 
 
 export default function Profile(){
@@ -36,8 +36,8 @@ export default function Profile(){
                     </ul>
                 </div>
                 <div class="redes-sociales">
-                    <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
-                    <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                    <a href="#" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                    <a href="#" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
                     <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
                 </div>
             </div>
