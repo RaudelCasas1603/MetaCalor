@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Count from "../components/count.jsx";
 import Bottoms from "../components/bottoms.jsx";
 import RankingBottom from "../components/rankingBottom.jsx";

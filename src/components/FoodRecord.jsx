@@ -5,24 +5,18 @@ import "../components/styles/FoodRecordStyle.css";
 export default function FoodRecord(){
 
     return (
-
         <div className="containerSelect">
-
             <div className="Text">
                 <h1 className="Text__title">
                     Registra tus Alimentos y Porciones
                 </h1>
                 <hr className="line"/>
-
                 <p className="Text__text">
                     Asegurate de registrar las porciones correctas y los alimentos adecuados si quieres observar
                     los cambios más exactos
                 </p>
-
                 <hr className="line"/>
-
                 <h3 className="Text__tips">Consejo</h3>
-
             </div>
 
             <div className="Image">
@@ -37,7 +31,6 @@ export default function FoodRecord(){
                 </div>
             </div>
         </div>
-
     );
 
 }

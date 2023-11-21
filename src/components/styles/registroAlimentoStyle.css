@@ -6,40 +6,36 @@
     /* background-color: black; */
 }
 .RegisterFood-container{
+    color: #34495e;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 5%;
-    /* margin: auto; */
+    margin: auto;
     align-self: center;
-    width: 80%;
 }
 .RegisterFood-categories{
     display: flex;
-    margin: auto;
-    width: 570px;
+    margin-top: 30px;
+    margin-left: 780px;
+    width: 40%;
     height: 140px;
-    align-self: center;
-    align-items: center;
     border-radius: 20px;
     flex-wrap: wrap;
-    background-color:rgb(220, 220, 220);
+    background-color:#E4E7EB;
+    box-shadow: 5px 5px 5px grey;
 }
 .RegisterFood-categories-header{
-    display: flex;
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    align-self: center;
-    margin-left: 33%;
+    margin: auto;
+}
+.RegisterFood-categories-header h1{
+    font-size: 35px;
+    font-style: bold;
 }
 .RegisterFood-categories-body{
-    display: flex;
-    width: 100%;
     align-items: center;
 }
 .RegisterFood-foodtable{
-    display: flex;
-    width: 100%;
+    position:absolute;
+    width: 50%;
     flex-wrap: wrap;
 }
 .RegisterFood-foodtable-header{
@@ -48,6 +44,10 @@
     align-self: center;
     margin: auto;
 }
+table{
+    width: 100%; /* hace que la tabla se ajuste al ancho del div */
+    height: auto; /* permite que la tabla crezca hasta un cierto punto */
+    }
 table, th, td {
     border-collapse: collapse;
     padding: 1rem;
@@ -55,25 +55,35 @@ table, th, td {
 }
 thead th {
     position: static;
+    border-radius: 10px;
     top: 0;
     left: 0;
-    background-color: rgb(220, 220, 220);
+    background-color: #E4E7EB;
     color:#34495e;
 }
 
 tbody tr:nth-child(even){
-    background-color: #e4e7eb;
+    background-color: #ffff;
+    transition: .5s;
 }
 
 tbody tr:hover {
     background-color: #bae6dd;
+    border-radius: 20px;
 }
 
 .RegisterFood-foodlist{
     display: flex;
-    width: 90%;
-    align-items: center;
-    
+    margin-top: 30px;
+    margin-bottom: 6px;
+    margin-left: 780px;
+    width: 40%;
+    height: 300px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    background-color:#E4E7EB;
+    overflow: auto;
+    box-shadow: 5px 5px 5px grey;
 }
 
 .RegisterFood-send-submit{

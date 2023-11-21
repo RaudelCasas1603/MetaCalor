@@ -1,4 +1,5 @@
-import React from "react"
+import React, {Component, useEffect, useState} from "react"
+import axios from "axios";
 import proteinas from "./images/proteina.png"
 import granos from './images/granos.png'
 import vegetales from './images/vegetales.png'
@@ -6,7 +7,22 @@ import frutas from './images/frutas.png'
 import lacteos from './images/lacteos.png'
 import './styles/registroAlimentoStyle.css'
 
+
 export default function FoodRegister(){
+    const[data,setData]=useState([]);
+    const peticionesGet= ()=>{
+        const url="https://databases-auth.000webhost.com/index.php?route=/sql&db=id21448825_alimentos&table=alimentos&pos=0";
+        axios.get(url, {mode: 'no-cors'})
+        .then(response=>{
+            setData(response.data);
+        })
+        .catch(error=>{
+            console.error('Error', error);
+        });
+    }
+    useEffect(()=>{
+        peticionesGet();
+    }, []);
     return(
         <section className="RegisterFood-container">
             {/* Seccion de seleccion de categoria */}
@@ -26,7 +42,6 @@ export default function FoodRegister(){
                     <img src={lacteos} style={{width:80, height:80}}/>
                 </div>
             </div>
-            
             <div className="RegisterFood-foodtable">
                 <section className='RegisterFood-foodtable-header'>
                     <h1>Tus alimentos</h1>
@@ -77,7 +92,6 @@ export default function FoodRegister(){
                 </section>
             </div>
             <div className="RegisterFood-foodlist">
-                <section className='RegisterFood-foodlist-body'>
                     <table>
                         <thead>
                             <tr>
@@ -86,14 +100,11 @@ export default function FoodRegister(){
                         </thead>
                         <tbody>
                             <tr>
-                                <td>A</td>
-                            </tr>
-                            <tr>
-                                <td>B</td>
-                            </tr>
-                            <tr>
-                                <td>C</td>
-                            </tr>
+                                {data.map(alimentos=>(
+                                <td key={alimentos.Alimento}>{alimentos.Alimento}</td>
+                                ))}
+                                </tr>
+                            
                             {/* <tr key={} className='you'>
                                 <td className='position'><strong>{}</strong></td>
                                 <td><img src={}/>Tu</td>
@@ -108,7 +119,6 @@ export default function FoodRegister(){
                             ))} */}
                         </tbody>
                     </table>
-                </section>
             </div>
             <div className="RegisterFood-send">
                 <input id="Porciones" type="number" className="RegisterFood-send-porciones" placeholder="Porciones:"></input>    
