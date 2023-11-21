@@ -1,13 +1,17 @@
-.container{
+.containerSelect{
     display: flex;
+    color: #1f354b;
 }
-
+.line{
+    width: 50%;
+    margin: auto;
+}
 .Text{
     flex:1;
     padding:20px;
 }
 .Text__title{
-    font-size: 40px;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
@@ -16,15 +20,16 @@
 }
 
 .Text__text{
+    width: 50%;
     font-size: 20px;
     text-align: center;
-    margin: 3%;
+    margin: auto;
     padding-top: 20px;
     padding-bottom: 30px;
 }
 
 .Text__tips{
-    font-size: 40px;
+    font-size: 28px;
     text-align: center;
     margin: 3%;
     font-weight: bold;
@@ -35,68 +40,45 @@
 .Image{
     display : flex;
     flex:1;
-    padding: 20px;
+    padding-bottom: 15px;
     text-align: center;
-    border:3px solid black;
+    border:3px solid #34495E;
     border-radius: 15px;
-    margin: 70px;
-    padding-top: 40px;
-
-}
-
-.Image__customFood{
-    flex:1;
-    padding: 20px;
-}
-
-.Image__customFood--img{
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .VerticalLine {
-    border-left: 2px solid black; /* Ajusta el grosor y color según tus preferencias */
-    height: 80%; /* La altura de la línea será igual a la altura de los divs de imagen */
-    margin: 0 20px; /* Añade margen a ambos lados para separar la línea de las imágenes */
-    margin-top: 30px;
+    display: flex;
+    padding-top: 330px;
+    border:solid 1px #34495E;
+    border-radius: 40px;
+    position: absolute;
+    right:350px;
+    top: 150px;
+    height: 50px;
   }
-  
-
-.Image__Food{
-    flex:1;
-    padding: 20px;
-}
 
 .Image__Food--img{
-    padding-top: 15px;
-    width: 235px;
-    height: 235px;
+    margin-top: 50px;
+    width: 265px;
+    height: 265px;
     border-radius: 15px;
+    margin-bottom: 30px;
 }
 
-button{
+
+.OpcPlatillo{
     background-color: #34495E;
     border: none;
     color: white;
-    padding: 15px 32px;
-    margin: 4%;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 15px;
     cursor: pointer;
-}
-
-.Image__customFood--text{
-    padding: 15px 20px;
-    width: 230px;
-    margin: 30px auto;
-}
-
-.Image__Food--text{
-    padding: 15px 20px;
-    width: 230px;
-    margin: 15px auto;
 }

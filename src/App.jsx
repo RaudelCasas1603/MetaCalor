@@ -5,15 +5,16 @@ import Welcome from './components/Welcome';
 import Login from './Screens/Login';
 import SignUp from './Screens/SignUp';
 import Navbar from './components/Navbar';
-import NavbarLoged from './components/styles/NavbarLoged';
+import NavbarLoged from './components/NavbarLoged';
 import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
 import Profile from './components/Profile'
-import FoodRecord from './Screens/FoodRecord';
+import FoodRecord from './components/FoodRecord';
 import FoodRegister from './components/foodregister';
 import FoodAdd from './components/foodAdd';
+
 
 const navArrayLinks = [ //Links para navbar sin loguear
   { title: "Home", path: "/" },

@@ -14,12 +14,12 @@ const Bottoms = () => {
                 Generar reporte
             </a>
             <div className="linea-vertical"></div>
-            <a className='calorias'>
+            <a href='foodregister' className='calorias'>
                 <img class="position-absolute image1" width={'40px'} src={imagen2}/>
                     Registrar calorias
             </a>
             <div className="linea-vertical2"></div>
-                <a className='platillos'>
+                <a href='FoodRecord' className='platillos'>
                     <img class="position-absolute image1" width={'40px'} src={imagen3}/>
                     Agregar platillo</a>
         </div>
