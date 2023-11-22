@@ -13,18 +13,37 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
-export default function Login() {
+export default function Login({setLoggedIn}) {
+
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+
+  axios.post('https://metacalor-e.000webhostapp.com/Access/login.php', data)
+  .then(response => {
+    console.log(response);
+    if (response.data.success) {
+      console.log('Login successful');
+      if (response.data.redirect) {
+        // Redirect to the specified page
+        setLoggedIn(true);
+        navigate('/main');
+      }
+    } else {
+      console.error('Login failed:', response.data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Network error:', error);
+  });
+};
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -44,7 +63,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Iniciar sesión
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -66,10 +85,10 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Recordarme"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
