@@ -5,24 +5,41 @@ import granos from './images/granos.png'
 import vegetales from './images/vegetales.png'
 import frutas from './images/frutas.png'
 import lacteos from './images/lacteos.png'
+import grasasSin from './images/grasasSin.png'
+
 import './styles/registroAlimentoStyle.css'
 
 
 export default function FoodRegister(){
-    const[data,setData]=useState([]);
-    const peticionesGet= ()=>{
-        const url="https://databases-auth.000webhost.com/index.php?route=/sql&db=id21448825_alimentos&table=alimentos&pos=0";
-        axios.get(url, {mode: 'no-cors'})
-        .then(response=>{
-            setData(response.data);
-        })
-        .catch(error=>{
-            console.error('Error', error);
-        });
+const[alimentos, setAlimentos]=useState([]);
+const[alimentosFiltrados, setFiltrados]=useState([]);
+const[categoriaActual, setCatActual]=useState('Todas');
+useEffect(()=>{ //HACE LA CONSULTA DE TODOS LOS ALIMENTOS DE LA BASE DE DATOS
+    fetch('https://metacalor-e.000webhostapp.com/alimentos.php')
+    .then(response => response.json())
+    .then(data => {
+        setAlimentos(data)
+        setFiltrados(data)
+    })
+    .catch(error => console.error('Error al obtener datos:', error));
+}, []);
+useEffect(()=>{  //FILTRA LOS ALIMENTOS SEGÚN LA CATEGORÍA SELECCIONADA
+    if(categoriaActual==='Todas'){
+        setFiltrados(alimentos);
+    }else{
+        const alimentosFiltrados=alimentos.filter(item=>item.categoria === categoriaActual);
+        setFiltrados(alimentosFiltrados);
     }
-    useEffect(()=>{
-        peticionesGet();
-    }, []);
+}, [categoriaActual, alimentos]);
+const cateUnicas={
+    Frutas: frutas,
+    Verduras: vegetales,
+    Leguminosas: granos,
+    "Grasas con proteínas": proteinas,
+    "Grasas sin proteínas": grasasSin,
+    "Leche entera": lacteos,
+    "Leche descremada": lacteos,
+};
     return(
         <section className="RegisterFood-container">
             {/* Seccion de seleccion de categoria */}
@@ -31,15 +48,16 @@ export default function FoodRegister(){
                     <h1>Categorias</h1>    
                 </div>
                 <div className="RegisterFood-categories-body">
-                    <img src={proteinas} style={{width:80, height:80}}/>
-                    <div className="VerticalLine"></div> {/* Agregamos un div para la línea vertical */}
-                    <img src={granos} style={{width:80, height:80}}/>
-                    <div className="VerticalLine"></div> {/* Agregamos un div para la línea vertical */}
-                    <img src={vegetales} style={{width:80, height:80}}/>
-                    <div className="VerticalLine"></div> {/* Agregamos un div para la línea vertical */}
-                    <img src={frutas} style={{width:80, height:80}}/>
-                    <div className="VerticalLine"></div> {/* Agregamos un div para la línea vertical */}
-                    <img src={lacteos} style={{width:80, height:80}}/>
+                    {Object.keys(cateUnicas).map((categoria, index)=>(
+                        <button key={index} onClick={()=>setCatActual(categoria)} style={{
+                            background: `url(${cateUnicas[categoria]})`,
+                            backgroundSize: 'cover',
+                            padding: '25px',
+                            margin: '10px',
+                            cursor: 'pointer',
+                         }}></button>
+                         
+                    ))}
                 </div>
             </div>
             <div className="RegisterFood-foodtable">
@@ -92,33 +110,23 @@ export default function FoodRegister(){
                 </section>
             </div>
             <div className="RegisterFood-foodlist">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Lista Alimentos</th>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4>Lista Alimentos</h4>
+                                <p style={{margin:'0px', padding: '0px'}}>{categoriaActual}</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {alimentosFiltrados.map((item, index)=>(
+                            <tr key={index}>
+                                <td>{item.Alimento}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                {data.map(alimentos=>(
-                                <td key={alimentos.Alimento}>{alimentos.Alimento}</td>
-                                ))}
-                                </tr>
-                            
-                            {/* <tr key={} className='you'>
-                                <td className='position'><strong>{}</strong></td>
-                                <td><img src={}/>Tu</td>
-                                <td>{}</td>
-                            </tr>
-                            {rankingData.map(() => (
-                                <tr key={}>
-                                    <td className='position'><strong>{}</strong></td>
-                                    <td><img src={}/>{}</td>
-                                    <td>{}</td>
-                                </tr>
-                            ))} */}
-                        </tbody>
-                    </table>
+                        ))}
+                    </tbody>
+                </table>
             </div>
             <div className="RegisterFood-send">
                 <input id="Porciones" type="number" className="RegisterFood-send-porciones" placeholder="Porciones:"></input>    
