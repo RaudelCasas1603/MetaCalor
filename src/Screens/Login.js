@@ -13,35 +13,41 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
+import { useAuth } from '../AuthContext'
 const defaultTheme = createTheme();
 
-export default function Login({setLoggedIn}) {
-
+const Login = ( {setLoggedIn}) => {
   const navigate = useNavigate();
-
+  const { login, userId } = useAuth();
   const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
 
-  axios.post('https://metacalor-e.000webhostapp.com/Access/login.php', data)
-  .then(response => {
-    console.log(response);
-    if (response.data.success) {
-      console.log('Login successful');
-      if (response.data.redirect) {
-        // Redirect to the specified page
-        setLoggedIn(true);
-        navigate('/main');
-      }
-    } else {
-      console.error('Login failed:', response.data.message);
-    }
-  })
-  .catch(error => {
-    console.error('Network error:', error);
-  });
-};
+    axios.post('https://metacalor-e.000webhostapp.com/Access/login.php', data)
+      .then(response => {
+        console.log(response);
+        if (response.data.success) {
+          console.log('Login successful');
+          if (response.data.redirect) {
+
+            // Llama a la función login con el ID del usuario
+            login(response.data.userId);
+            
+            console.log("MI id:" + userId);
+
+            setLoggedIn(true);
+            // Resto de tu código
+            navigate('/main');
+          }
+        } else {
+          console.error('Login failed:', response.data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Network error:', error);
+      });
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -108,3 +114,5 @@ export default function Login({setLoggedIn}) {
     </ThemeProvider>
   );
 }
+
+export default Login;

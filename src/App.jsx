@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importa Routes en lugar de Switch
+import React, { useState} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider, useAuth } from './AuthContext';
 
 import Welcome from './components/Welcome';
 import Login from './Screens/Login';
@@ -11,36 +12,36 @@ import Footer from './components/footer';
 import Ranking from './components/Ranking';
 import Report from './components/Report';
 import Main from './Screens/Main';
-import Profile from './components/Profile'
+import Profile from './components/Profile';
 import FoodRecord from './components/FoodRecord';
 import FoodRegister from './components/foodregister';
 import FoodAdd from './components/foodAdd';
 
-
-const navArrayLinks = [ //Links para navbar sin loguear
+const navArrayLinks = [
   { title: "Home", path: "/" },
   { title: "Iniciar sesión", path: "/login" },
   { title: "Registrarse", path: "/signup" },
 ];
 
-const navArrayLinks2 = [ //Links para navbar ya logueado
+const navArrayLinks2 = [
   { title: "Menu", path: "/main" },
   { title: "Ranking", path: "/ranking" },
   { title: "Reportes", path: "/Report" },
   { title: "Perfil", path: "/profile" },
 ];
 
+const App = () => {
 
-function App() {
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
   const [UserId, setUserId] = useState(null); // Track user's login status
   return (
+    <AuthProvider>
     <Router>
-    <>
-    {loggedIn ? <NavbarLoged navArrayLinks={navArrayLinks2}/> : <Navbar navArrayLinks={navArrayLinks} />}
-  
+
       <div>
+        {loggedIn ? <NavbarLoged navArrayLinks={navArrayLinks2} /> : <Navbar navArrayLinks={navArrayLinks} />}
+
         <Routes>
           <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
@@ -54,11 +55,13 @@ function App() {
           <Route path='/FoodRegister' element={<FoodRegister/>} />
           <Route path='/FoodAdd' element={<FoodAdd/>} />
         </Routes>
-        <Footer/>
+
+        <Footer />
       </div>
-    </>
-  </Router>
+      </Router>
+      </AuthProvider>
+ 
   );
-}
+};
 
 export default App;
