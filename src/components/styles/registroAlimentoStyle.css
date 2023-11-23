@@ -1,3 +1,4 @@
+
 .VerticalLine{
     display: flex;
     height: 70px;    
@@ -5,6 +6,8 @@
     margin-top: 1%;
     /* background-color: black; */
 }
+
+/* CONTENEDOR DE CATEGORÍAS*/
 .RegisterFood-container{
     color: #34495e;
     display: flex;
@@ -17,7 +20,7 @@
     margin-left: 780px;
     width: 40%;
     height: 140px;
-    border-radius: 20px;
+    border-radius: 50px;
     flex-wrap: wrap;
     background-color:#E4E7EB;
     box-shadow: 5px 5px 5px grey;
@@ -35,8 +38,9 @@ img{
     text-align: center;
 }
 .RegisterFood-categories-header h1{
-    font-size: 35px;
+    font-size: 30px;
     font-style: bold;
+    font-family: 'Roboto', sans-serif;
 }
 .RegisterFood-categories-body{
     width: 100%;
@@ -47,45 +51,45 @@ img{
     border: #34495e;
 }
 
+/* CONTENEDOR DE LA LISTA DE ALIMENTOS */
+
 .RegisterFood-foodtable{
     left: 50px;
-    top: 80px;
+    top: 95px;
     position:absolute;
     width: 50%;
     flex-wrap: wrap;
+    border-bottom-left-radius: 20px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px grey;
+    height: 400px;
+    overflow: auto;
+    
 }
 .RegisterFood-foodtable-header{
     display: flex;
-    width: 90%;
-    align-self: center;
-    margin: auto;
-}
-table{
-    width: 100%; /* hace que la tabla se ajuste al ancho del div */
-    height: auto; /* permite que la tabla crezca hasta un cierto punto */
-    }
-table, th, td {
-    border-collapse: collapse;
-    padding: 1rem;
-    text-align: center;
-}
-thead th {
-    position: static;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
+    width: 100%;
     background-color: #E4E7EB;
-    color:#34495e;
-}
+    color: #34495e;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 15px;
+    justify-content: center;
+    }
 
-tbody tr:nth-child(even){
-    background-color: #ffff;
-    transition: .5s;
-}
 
-tbody tr:hover {
-    background-color: #bae6dd;
-    border-radius: 20px;
+/* ALIMENTOS SELECCIONADOS */
+
+.myFoodTable{
+    width: 100%;
+    border: none;
+    overflow: auto;
+}
+.myFoodTable th{
+    background-color: #E4E7EB;
+    padding: 10px;
+    color: #34495e;
+    font-size: 15px;
 }
 
 .RegisterFood-foodlist{
@@ -95,38 +99,60 @@ tbody tr:hover {
     margin-left: 780px;
     width: 40%;
     height: 300px;
-    border-radius: 20px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     flex-wrap: wrap;
-    background-color:#E4E7EB;
     overflow: auto;
     box-shadow: 5px 5px 5px grey;
+    cursor: pointer;
 }
+.RegisterFood-foodlist th{
+    background-color: #E4E7EB;
+    padding: 10px;
+    color: #34495e;
+    
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: auto;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #34495E; /* Color del pulgar (la parte que puedes arrastrar) */
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #F0F0F0; /* Color de la pista (la parte que no puedes arrastrar) */
+    border-radius: 6px;
+  }
 
 .RegisterFood-send-submit{
     background-color: #34495e;
     border-radius: 10 px;
     border: 2px white;
     color:  white; 
-    
-
 }
 .RegisterFood-send-submit:hover{
     color: #34495e;
     background-color: #e4e7eb
 }
-@media only screen and (max-width: 768px) {
-    .RegisterFood-categories-body{
-        margin-right: 10px;
+@media only screen and (max-width: 900px) {
+    .RegisterFood-container{
+        margin: 20px;
     }
+    
     .RegisterFood-categories {
       margin: auto;
       width: 100%;
-      margin-top: 300px;
+      margin-top: 400px;
       height: auto;
+      padding: 20px;
     }
   
     .RegisterFood-foodtable,
     .RegisterFood-foodlist {
+        margin-bottom: 30px;
         left: 0px;
         margin-left: 0;
         width: 100%;

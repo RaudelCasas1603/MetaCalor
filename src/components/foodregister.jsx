@@ -1,5 +1,4 @@
-import React, {Component, useEffect, useState} from "react"
-import axios from "axios";
+import React, {useEffect, useState} from "react"
 import proteinas from "./images/proteina.png"
 import granos from './images/granos.png'
 import vegetales from './images/vegetales.png'
@@ -65,8 +64,8 @@ const cateUnicas={
                     <h1>Tus alimentos</h1>
                 </section>
                 <section className='RegisterFood-foodtable-body'>
-                    <table>
-                        <thead>
+                    <table className="myFoodTable">
+                        <thead className="foodtableHead">
                             <tr>
                                 <th>Producto</th>
                                 <th>Proteinas</th>
@@ -75,18 +74,6 @@ const cateUnicas={
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>C</td>
-                                <td>D</td>
-                            </tr>
-                            <tr>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>C</td>
-                                <td>D</td>
-                            </tr>
                             <tr>
                                 <td>A</td>
                                 <td>B</td>
