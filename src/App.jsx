@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 import Welcome from './components/Welcome';
 import Login from './Screens/Login';
 import SignUp from './Screens/SignUp';
+import SignUp2 from './Screens/SignUp2';
 import Navbar from './components/Navbar';
 import NavbarLoged from './components/NavbarLoged';
 import Footer from './components/footer';
@@ -24,13 +25,16 @@ const navArrayLinks = [ //Links para navbar sin loguear
 
 const navArrayLinks2 = [ //Links para navbar ya logueado
   { title: "Menu", path: "/main" },
-  { title: "Configuracion", path: "/configuracion" }
+  { title: "Ranking", path: "/ranking" },
+  { title: "Reportes", path: "/Report" },
+  { title: "Perfil", path: "/profile" },
 ];
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
+  const [UserId, setUserId] = useState(null); // Track user's login status
   return (
     <Router>
     <>
@@ -40,7 +44,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-          <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
+          <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} setUserId={setUserId} />} />
+          <Route path="/signup2" element={<SignUp2 setUserId={UserId}/>}/>
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
           <Route path='/profile' element={<Profile />}/>

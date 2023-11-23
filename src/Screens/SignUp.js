@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
-export default function SignUp({setLoggedIn}) {
+export default function SignUp({setLoggedIn, setUserId}) {
 
   const navigate = useNavigate();
 
@@ -38,7 +38,8 @@ export default function SignUp({setLoggedIn}) {
         if (response.data.redirect) {
           // Redirige a la página especificada
           setLoggedIn(true);
-          navigate('/main');
+          setUserId(data.get("username"))
+          navigate('/signup2');
         }
       } else {
         console.error('Error al registrar:', response.data.message);
