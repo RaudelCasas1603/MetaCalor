@@ -38,7 +38,7 @@ export default function SignUp({setLoggedIn, setUserId}) {
         if (response.data.redirect) {
           // Redirige a la página especificada
           setLoggedIn(true);
-          setUserId(data.get("username"))
+          setUserId(response.data.id)
           navigate('/signup2');
         }
       } else {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,9 +21,9 @@ const defaultTheme = createTheme();
 
 export default function SignUp2(UserId) {
 
-        const [sexo, setSexo] = React.useState('');
-        const [actividad, setActividad] = React.useState('');
-      
+        const [sexo, setSexo] = useState('');
+        const [actividad, setActividad] = useState('');
+
         const handleChange = (event) => {
           setSexo(event.target.value);
         };
@@ -34,17 +34,22 @@ export default function SignUp2(UserId) {
 
     const navigate = useNavigate();
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-         console.log({
-           peso: data.get('peso'),
-           estatura: data.get('estatura'),
-           sexo: sexo,
-           actividad: actividad,
-         });
+        data.append('sexo', sexo);
+        data.append('actividad', actividad);
 
-         axios.post('https://metacalor-e.000webhostapp.com/Access/signUp2.php', data, sexo, actividad, UserId)
+        data.append('UserId', (UserId.UserId));
+          console.log({
+            peso: data.get('peso'),
+        //    estatura: data.get('estatura'),
+        //    sexo: sexo,
+        //    actividad: actividad,
+          });
+
+         axios.post('https://metacalor-e.000webhostapp.com/Access/signUp2.php', data)
              .then(response => {
                  console.log(response);
                  if (response.data.success) {
@@ -148,9 +153,11 @@ export default function SignUp2(UserId) {
                                     label="Actividad"
                                     onChange={handleChange2}
                                 >
-                                    <MenuItem value={10}>Baja</MenuItem>
-                                    <MenuItem value={20}>Media</MenuItem>
-                                    <MenuItem value={30}>Alta</MenuItem>
+                                    <MenuItem value={1.2}>Sedentario</MenuItem>
+                                    <MenuItem value={1.375}>Ligero</MenuItem>
+                                    <MenuItem value={1.55}>Moderado</MenuItem>
+                                    <MenuItem value={1.725}>Activo</MenuItem>
+                                    <MenuItem value={1.9}>Muy activo</MenuItem>
                                 </Select>
                                 </FormControl>
                                 <FormHelperText>Actividad</FormHelperText>

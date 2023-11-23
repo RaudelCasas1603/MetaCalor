@@ -34,7 +34,7 @@ const App = () => {
 
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
-  const [UserId, setUserId] = useState(null); // Track user's login status
+  const [UserId, setUserId] = useState(''); // Track user's login status
   return (
     <AuthProvider>
     <Router>
@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/" element={<Welcome/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} setUserId={setUserId} />} />
-          <Route path="/signup2" element={<SignUp2 setUserId={UserId}/>}/>
+          <Route path="/signup2" element={<SignUp2 UserId={UserId}/>}/>
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
           <Route path='/profile' element={<Profile />}/>

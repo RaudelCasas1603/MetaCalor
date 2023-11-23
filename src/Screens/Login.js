@@ -37,7 +37,6 @@ const Login = ( {setLoggedIn}) => {
             console.log("MI id:" + userId);
 
             setLoggedIn(true);
-            // Resto de tu código
             navigate('/main');
           }
         } else {
