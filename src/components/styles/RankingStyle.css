@@ -70,7 +70,7 @@ td img {
     vertical-align: middle;
 }
 
-table, th, td {
+table, .table-ranking, th, td {
     border-collapse: collapse;
     padding: 1rem;
     text-align: center;

@@ -34,7 +34,7 @@ useEffect(() => {
                 <h1>Ranking</h1>
             </section>
             <section className='table__body'>
-                <table>
+                <table className='table-ranking' style={{width:'100%'}}>
                     <thead>
                         <tr>
                             <th>Posición</th>
