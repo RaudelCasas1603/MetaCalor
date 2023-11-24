@@ -86,7 +86,7 @@ export default function SignUp2(UserId) {
                     <Typography component="h1" variant="h5" textAlign="center">
                         Nos alegra que estés aquí. ¡Terminemos de personalizar tu experiencia!
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 , right:0,}} width={'100%'}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField

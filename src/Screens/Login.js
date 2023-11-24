@@ -68,7 +68,7 @@ export default function Login ({setLoggedIn, setUserId}) {
           <Typography component="h1" variant="h5">
             Iniciar sesión
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1, right:0,}} width={'100%'}>
             <TextField
               margin="normal"
               required
