@@ -6,7 +6,9 @@ import '../components/styles/main.css';
 import imagen1 from '../components/images/carbo.png';
 import imagen2 from '../components/images/grasas.png';
 import imagen3 from '../components/images/prote.png';
-export default function Main(UserId) {
+import { useState } from "react";
+export default function Main({UserId}) {
+    const [UserIdLocal, setUserId]=useState(UserId);
     return(
         <>
             <div className="container" style={{ marginTop: '100px', marginBottom: '100px' }}>
@@ -16,7 +18,7 @@ export default function Main(UserId) {
                 <h5 className="macro-2 position-absolute">Grasas</h5>
                 <img src={imagen3} alt="Imagen" class="position-absolute posicion-prote" width={'115px'}/>
                 <h5 className="macro-3 position-absolute">Proteínas</h5>
-                <Count/>
+                <Count UserId={UserIdLocal}/>
                 <h5 className="rankingBottom position-absolute">Ranking</h5>
                 <RankingBottom/>
                 <Bottoms/>
