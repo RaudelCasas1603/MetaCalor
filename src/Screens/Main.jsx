@@ -6,7 +6,7 @@ import '../components/styles/main.css';
 import imagen1 from '../components/images/carbo.png';
 import imagen2 from '../components/images/grasas.png';
 import imagen3 from '../components/images/prote.png';
-export default function Main() {
+export default function Main(UserId) {
     return(
         <>
             <div className="container" style={{ marginTop: '100px', marginBottom: '100px' }}>

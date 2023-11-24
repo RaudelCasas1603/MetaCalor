@@ -1,19 +1,9 @@
-
-.VerticalLine{
-    display: flex;
-    height: 70px;    
-    width: 2px;
-    margin-top: 1%;
-    /* background-color: black; */
-}
-
 /* CONTENEDOR DE CATEGORÍAS*/
 .RegisterFood-container{
     color: #34495e;
-    display: flex;
+    
     flex-wrap: wrap;
     margin: auto;
-    align-self: center;
 }
 .RegisterFood-categories{
     margin-top: 30px;
@@ -32,7 +22,6 @@
 }
 img{
     padding: 5px;
-    
 }
 .RegisterFood-categories-header{
     text-align: center;
@@ -58,13 +47,11 @@ img{
     top: 95px;
     position:absolute;
     width: 50%;
-    flex-wrap: wrap;
     border-bottom-left-radius: 20px;
     border-radius: 50px;
     box-shadow: 5px 5px 5px grey;
     height: 400px;
     overflow: auto;
-    
 }
 .RegisterFood-foodtable-header{
     display: flex;
@@ -76,8 +63,6 @@ img{
     padding: 15px;
     justify-content: center;
     }
-
-
 /* ALIMENTOS SELECCIONADOS */
 
 .myFoodTable{
@@ -95,7 +80,6 @@ img{
 .RegisterFood-foodlist{
     display: flex;
     margin-top: 30px;
-    margin-bottom: 6px;
     margin-left: 780px;
     width: 40%;
     height: 300px;
@@ -110,7 +94,6 @@ img{
     background-color: #E4E7EB;
     padding: 10px;
     color: #34495e;
-    
 }
 ::-webkit-scrollbar {
     width: 10px;
@@ -127,36 +110,41 @@ img{
     border-radius: 6px;
   }
 
-.RegisterFood-send-submit{
-    background-color: #34495e;
-    border-radius: 10 px;
-    border: 2px white;
-    color:  white; 
-}
-.RegisterFood-send-submit:hover{
-    color: #34495e;
-    background-color: #e4e7eb
-}
-@media only screen and (max-width: 900px) {
+  form{
+    right: 200px;
+    margin: auto;
+    position: relative;
+    width: 50%;
+  }
+
+@media only screen and (max-width: 1200px) {
+    
     .RegisterFood-container{
-        margin: 20px;
+        padding: 20px;
     }
     
     .RegisterFood-categories {
       margin: auto;
       width: 100%;
-      margin-top: 400px;
       height: auto;
       padding: 20px;
     }
-  
-    .RegisterFood-foodtable,
-    .RegisterFood-foodlist {
-        margin-bottom: 30px;
-        left: 0px;
-        margin-left: 0;
+    .RegisterFood-foodtable{
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: relative;
         width: 100%;
-        padding: 15px;
+    }
+    
+    .RegisterFood-foodlist {
+        margin: auto;
+        margin-top: 50px;
+        width: 100%;
+    }
+    form{
+        width: 100%;
+        margin-top: 150px;
     }
   }
   

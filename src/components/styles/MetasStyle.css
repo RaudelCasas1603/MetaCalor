@@ -23,12 +23,7 @@ table {
     border-radius: 20px; /* Aplicar bordes redondeados a la tabla */
 }
 
-.center-table {
-    margin: 0 auto;
-    width: 80%;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
+
 
 .button-bar {
     display: flex;

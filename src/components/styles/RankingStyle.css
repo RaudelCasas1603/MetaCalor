@@ -61,10 +61,6 @@ main.table {
     visibility: visible;
 }
 
-table {
-    width: 100%;
-}
-
 td img {
     width: 40px;
     height: 40px;

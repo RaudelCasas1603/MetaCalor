@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { useAuth } from '../AuthContext'
 const defaultTheme = createTheme();
 
-const Login = ( {setLoggedIn}) => {
+export default function Login ({setLoggedIn, setUserId}) {
   const navigate = useNavigate();
   const { login, userId } = useAuth();
   const handleSubmit = (event) => {
@@ -34,9 +34,10 @@ const Login = ( {setLoggedIn}) => {
             // Llama a la función login con el ID del usuario
             login(response.data.userId);
             
-            console.log("MI id:" + userId);
+            console.log("MI id:" + response.data.userId);
 
             setLoggedIn(true);
+            setUserId(response.data.userId)
             navigate('/main');
           }
         } else {
@@ -113,5 +114,3 @@ const Login = ( {setLoggedIn}) => {
     </ThemeProvider>
   );
 }
-
-export default Login;

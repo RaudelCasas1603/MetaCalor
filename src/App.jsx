@@ -26,7 +26,6 @@ const navArrayLinks = [
 const navArrayLinks2 = [
   { title: "Menu", path: "/main" },
   { title: "Ranking", path: "/ranking" },
-  { title: "Reportes", path: "/Report" },
   { title: "Perfil", path: "/profile" },
 ];
 
@@ -44,15 +43,15 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Welcome/>} />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setUserId={setUserId}/>} />
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} setUserId={setUserId} />} />
           <Route path="/signup2" element={<SignUp2 UserId={UserId}/>}/>
           <Route path="/ranking" element={<Ranking />}/>
           <Route path="/Report" element={<Report />}/>
           <Route path='/profile' element={<Profile />}/>
-          <Route path="/Main" element={<Main/>}/>
+          <Route path="/Main" element={<Main UserId={UserId}/>}/>
           <Route path='/FoodRecord' element={<FoodRecord/>}/>
-          <Route path='/FoodRegister' element={<FoodRegister/>} />
+          <Route path='/FoodRegister' element={<FoodRegister UserId={UserId}/>} />
           <Route path='/FoodAdd' element={<FoodAdd/>} />
         </Routes>
 
