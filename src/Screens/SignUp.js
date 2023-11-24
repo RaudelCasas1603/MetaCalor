@@ -69,7 +69,7 @@ export default function SignUp({setLoggedIn, setUserId}) {
           <Typography component="h1" variant="h5" textAlign="center">
           ¡Te damos la bienvenida! Personalicemos MetaCalor de acuerdo con tus objetivos.
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 , right:0,}} width={'100%'}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
