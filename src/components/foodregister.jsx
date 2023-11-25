@@ -226,7 +226,7 @@ const handleSubmit=(event)=>{
                 <Button
                     type="submit"
                     variant="contained"
-                    sx={{ mt: 8, mb: 2, backgroundColor: '#34495E', right:'300px', padding:'10px', borderRadius:'50px' }}
+                    sx={{backgroundColor: '#34495E', borderRadius:'50px' }}
                 >
                     Registrar
                 </Button>

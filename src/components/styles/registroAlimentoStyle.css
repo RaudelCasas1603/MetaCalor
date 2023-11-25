@@ -85,12 +85,15 @@ img{
     height: 300px;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    flex-wrap: wrap;
     overflow: auto;
     box-shadow: 5px 5px 5px grey;
     cursor: pointer;
 }
+.RegisterFood-foodlist table{
+    width: 100%;
+}
 .RegisterFood-foodlist th{
+    width: 550px;
     background-color: #E4E7EB;
     padding: 10px;
     color: #34495e;
@@ -109,12 +112,14 @@ img{
     background-color: #F0F0F0; /* Color de la pista (la parte que no puedes arrastrar) */
     border-radius: 6px;
   }
-
-  form{
-    right: 200px;
-    margin: auto;
-    position: relative;
-    width: 50%;
+  .FormRegister{
+    margin-left: 150px;
+    margin-bottom: 70px;
+  }
+  .FormRegister button{
+    display: relative;
+    top: 70px;
+    right: 300px;
   }
 
 @media only screen and (max-width: 1200px) {
@@ -130,11 +135,17 @@ img{
       padding: 20px;
     }
     .RegisterFood-foodtable{
+        top: 60px;
         left: 0;
         right: 0;
         margin: auto;
         position: relative;
         width: 100%;
+    }
+    .myFoodTable{
+        width: 100%;
+        border: none;
+        overflow: auto;
     }
     
     .RegisterFood-foodlist {
@@ -142,9 +153,19 @@ img{
         margin-top: 50px;
         width: 100%;
     }
-    form{
-        width: 100%;
-        margin-top: 150px;
+    .FormRegister{
+        justify-content: center;
+        margin-top: 100px;
+        margin-bottom: 70px;
+      }
+    .FormRegister input, label{
+        text-align: center;
+        margin-top: 40px;
     }
+      .FormRegister button{
+        top: 130px;
+        right: 135px;
+      }
+    
   }
   
