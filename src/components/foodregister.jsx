@@ -15,8 +15,10 @@ export default function FoodRegister(UserId){
 const[caloriasRegistradas, setCaloriasRegistradas]=useState(0.0);
 const[proteinasRegistradas, setProteRegistradas]=useState(0.0);
 const[grasas, setGrasasRegistradas]=useState(0.0);
+const[carbohidratos, setCarbohidratosRegistrados]=useState(0.0);
 const[sumaCalorias, setSumaCalorias]=useState(0.0);
 const[sumaProteinas, setSumaProteinas]=useState(0.0);
+const[sumaCarbohidratos, setSumaCarbohidratos]=useState(0.0);
 const[sumaGrasas, setSumaGrasas]=useState(0.0);
 const[alimentos, setAlimentos]=useState([]);
 const[alimentosFiltrados, setFiltrados]=useState([]);
@@ -65,10 +67,12 @@ const actualizarMacroNutrientes = (miAlimento, NoEstaEnLaLista)=>{
         setSumaCalorias((prev) => Math.max(prev - Number(miAlimento.Energia_kcal), 0));
         setSumaProteinas((prev) => Math.max(prev - Number(miAlimento.Proteina_g), 0));
         setSumaGrasas((prev) => Math.max(prev - Number(miAlimento.Lipidos_g), 0));
+        setSumaCarbohidratos((prev) => Math.max(prev - Number(miAlimento.Hidratos_de_carbono_g), 0));
     }else{
         setSumaCalorias(sumaCalorias + Number(miAlimento.Energia_kcal));
         setSumaProteinas(sumaProteinas + Number(miAlimento.Proteina_g));
         setSumaGrasas(sumaGrasas + Number(miAlimento.Lipidos_g));
+        setSumaCarbohidratos(sumaCarbohidratos + Number(miAlimento.Hidratos_de_carbono_g));
     }
 }
 const handleActualizarCalorias = (event) => {
@@ -81,6 +85,9 @@ const handleActualizarProte = (event) => {
 const handleActualizarGrasas = (event) => {
     setGrasasRegistradas(event.target.value);
   };
+  const handleActualizarCarbohidratos = (event) => {
+    setCarbohidratosRegistrados(event.target.value);
+  };
 const navigate=useNavigate();
 const handleSubmit=(event)=>{
     event.preventDefault();
@@ -88,11 +95,13 @@ const handleSubmit=(event)=>{
         data.append('caloriasRegistradas', sumaCalorias);
         data.append('proteinasRegistradas', sumaProteinas);
         data.append('grasas', sumaGrasas);
+        data.append('carbohidratos', sumaCarbohidratos);
         data.append('UserId', (UserId.UserId));
          console.log({
            proteinasRegistradas: sumaProteinas,
            caloriasRegistradas: sumaCalorias,
            grasas: sumaGrasas,
+           carbohidratos: sumaCarbohidratos,
          });
          axios.post('https://metacalor-e.000webhostapp.com/Access/registrarCalorias.php', data)
             .then(response => {
@@ -123,6 +132,7 @@ const handleSubmit=(event)=>{
                 }
             });
     }
+    
   return(
         <section className="RegisterFood-container">
             {/* SECCION DE CATEGORIAS */}
@@ -175,6 +185,7 @@ const handleSubmit=(event)=>{
                                 <th>Calorías</th>
                                 <th>Grasas</th>
                                 <th>Proteínas</th>
+                                <th>Carbohidratos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -184,6 +195,7 @@ const handleSubmit=(event)=>{
                                     <td>{food.Energia_kcal}</td>
                                     <td>{food.Lipidos_g}</td>
                                     <td>{food.Proteina_g}</td>
+                                    <td>{food.Hidratos_de_carbono_g}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -221,6 +233,17 @@ const handleSubmit=(event)=>{
                         value={sumaGrasas}
                         label="grasas"
                         onChange={handleActualizarGrasas}
+                    ></Input>
+                </FormControl>
+                <FormControl required>
+                    <InputLabel htmlFor="carbohidratos">Total Carbohidratos</InputLabel>
+                    <Input
+                        id="carbohidratos"
+                        name="carbohidratos"
+                        type="number"
+                        value={sumaCarbohidratos}
+                        label="carbohidratos"
+                        onChange={handleActualizarCarbohidratos}
                     ></Input>
                 </FormControl>
                 <Button

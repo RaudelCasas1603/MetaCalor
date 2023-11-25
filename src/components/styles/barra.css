@@ -5,9 +5,10 @@
     background-color: #34495E;
     margin-left: 150px;
     margin-right: 120px;
-    margin-top: 80px;
+    margin-top: 100px;
     height: 120px;
     border-radius: 100px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .linea-vertical {
@@ -60,8 +61,6 @@ a:hover{
     font-weight: bold;
     position: absolute;
     height: 80px;
-    top: 20px;
-    left: 42%;
     text-decoration: none;
   }
   .platillos{

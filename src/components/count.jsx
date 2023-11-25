@@ -24,12 +24,12 @@ const Count = () => {
         }
       };
   return (
-    <div className="d-flex justify-content-center align-items-center circle-container">
+    <div className=" justify-content-center align-items-center circle-container">
       <div className="circle big-circle"></div>
-      {datosPerfil.map((item, index) => (
+      {datosPerfil.map((item, index) => (     
       <div className="circle small-circle">
         <h3 className='text-center text-light mt-custom display-custom'>{item.caloriasRegistradas}kcal</h3>
-        <h3 className='text-center display-5 text-light'>Calorias</h3>
+        <h4 className='text-center display-5 text-light'>Calorias</h4>
       </div>
          ))}
     </div>

@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 40vh;
+    margin-top: -50px;
   }
   
   .big-circle {
@@ -12,6 +13,7 @@
     background-color: #34495E ;
     position: absolute;
     z-index: 1;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .small-circle {
@@ -21,9 +23,12 @@
     background-color: #22303E ;
     z-index: 2;
   }
+.small-circle h3{
+  font-size: 4rem;
+}
 
   .mt-custom{
-    margin-top: 5rem;
+    margin-top: 5.5rem;
   }
 
   .display-custom{

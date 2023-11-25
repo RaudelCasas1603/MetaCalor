@@ -1,50 +1,140 @@
 @import '@fontsource/roboto';
 
-.posicion-carbo{
-    top: 100px;
+body {
+    margin: 0;
+}
+
+.nutrientes {
+    top: 105px;
+    left: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.posicion-carbo, .posicion-grasa, .posicion-prote,
+.macro-1, .macro-2, .macro-3, .rankingBottom,
+.line1, .grasasCounter, .line2, .proteCounter,
+.line3, .carboCounter, .line4, .kcalMant, .kcalManteniblesCounter  {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #22303E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.posicion-carbo {
+    top: 130px;
     left: 45px;
 }
 
-.posicion-grasa{
-    top: 240px;
+.posicion-grasa {
+    top: 270px;
     left: 45px;
 }
 
-.posicion-prote{
-    top: 375px;
+.posicion-prote {
+    top: 405px;
     left: 40px;
+
 }
 
-.macro-1{
-    top: 205px;
+.macro-1 {
+    top: 235px;
     left: 37px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: #22303E;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-.macro-2{
-    top: 347px;
-    left: 65px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: #22303E;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-.macro-3{
-    top: 490px;
-    left: 60px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: #22303E;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.rankingBottom{
+.macro-2 {
+    top: 377px;
+    left: 65px;
+}
+
+.macro-3 {
+    top: 520px;
+    left: 60px;
+}
+
+.kcalMant{
+    top: 52px;
+}
+
+
+.rankingBottom {
     top: 105px;
     right: 75px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+}
+
+.line1, .line2, .line3 {
+    width: 30px;
+    border: 1px solid #22303E;
+    border-radius: 100px;
+    position: relative;
+}
+.line4{
+    width: 80px;
+    border: 2px solid #34495E;
+    border-radius: 100px;
+    position: absolute;
+    left: 850px ;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+.grasasCounter{
+    top: 190px;
+} 
+.line1{
+    top: 208px;
+}
+.proteCounter{
+    top: 288px;
+}
+.line2 {
+    top: 305px;
+}
+
+.line3 {
+    top: 113px;
+}
+.line4{
+    top: 290px;
+}
+
+.carboCounter{
+    top: 95px;
+}
+.kcalMant{
+    position: absolute  ;
+    left: 920px;
     color: #22303E;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    top: 320px;
+}
+.kcalManteniblesCounter{
+    position: absolute  ;
+    left: 960px;
+    color: #22303E;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    top: 268px;
+}
+.grasasCounter, .proteCounter, .carboCounter {
+    position: relative;
+    color: #22303E;
+    left: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 900px) {
+    .nutrientes, .posicion-carbo, .posicion-grasa, .posicion-prote,
+    .macro-1, .macro-2, .macro-3, .rankingBottom,
+    .line1, .grasasCounter, .line2, .proteCounter,
+    .line3, .carboCounter, .kcalMant, .kcalManteniblesCounter {
+        left: 10px;
+    }
 }
