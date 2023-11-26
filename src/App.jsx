@@ -16,6 +16,7 @@ import Profile from './components/Profile';
 import FoodRecord from './components/FoodRecord';
 import FoodRegister from './components/foodregister';
 import FoodAdd from './components/foodAdd';
+import Ups from './Ups';
 
 const navArrayLinks = [
   { title: "Home", path: "/" },
@@ -34,6 +35,7 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(false); // Track user's login status
   const [UserId, setUserId] = useState(''); // Track user's login status
+
   return (
     <AuthProvider>
     <Router>
@@ -46,13 +48,13 @@ const App = () => {
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setUserId={setUserId}/>} />
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} setUserId={setUserId} />} />
           <Route path="/signup2" element={<SignUp2 UserId={UserId}/>}/>
-          <Route path="/ranking" element={<Ranking />}/>
-          <Route path="/Report" element={<Report />}/>
-          <Route path='/profile' element={<Profile />}/>
-          <Route path="/Main" element={<Main UserId={UserId}/>}/>
-          <Route path='/FoodRecord' element={<FoodRecord/>}/>
-          <Route path='/FoodRegister' element={<FoodRegister UserId={UserId}/>} />
-          <Route path='/FoodAdd' element={<FoodAdd/>} />
+          {loggedIn ? <Route path="/ranking" element={<Ranking />}/> : <Route path="/ranking" element={<Ups />}/> }
+          {loggedIn ? <Route path="/profile" element={<Profile />}/> : <Route path="/profile" element={<Ups />}/> }
+          {loggedIn ? <Route path="/Main" element={<Main UserId={UserId}/>}/> : <Route path="/Main" element={<Ups />}/> }
+          {loggedIn ? <Route path="/FoodRecord" element={<FoodRecord />}/> : <Route path="/FoodRecord" element={<Ups />}/> }
+          {loggedIn ? <Route path="/FoodRegister" element={<FoodRegister />}/> : <Route path="/FoodRegister" element={<Ups />}/> }
+          {loggedIn ? <Route path="/FoodAdd" element={<FoodAdd />}/> : <Route path="/FoodAdd" element={<Ups />}/> }
+          {loggedIn ? <Route path="/Report" element={<Report />}/> : <Route path="/Report" element={<Ups />}/> }
         </Routes>
 
         <Footer />
