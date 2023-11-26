@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ImagenUsuario from './images/imagen_usuario.png';
 import './styles/RankingStyle.css'
 import axios from 'axios';
+import { useAuth} from "../../src/AuthContext";
 
 export default function RankingTable() {
 
 const [datosRanking, setDatosRanking] = useState([]);
+const { userId }  = useAuth();
+// const [datosPerfil, setDatosPerfil] = useState([]);
 
 useEffect(() => {
     // Llama a la función para obtener datos del ranking al montar el componente
@@ -27,13 +30,18 @@ useEffect(() => {
 
   var $posicion = 0, $posicionUsuario;
 
-//Apartado para poder obtener la posicion del usuario
-//   for($posicionUsuario = 0; $posicionUsuario < datosRanking.length; $posicionUsuario++){
-//     const item = datosRanking[$posicionUsuario];
-//     const esUsuarioLog = userId ==item.id;
-//     const claseDestacada = esUsuarioLog ? 'usuario-log': '';
-//   }
-  
+    for ($posicionUsuario = 0; $posicionUsuario < datosRanking.length; $posicionUsuario++) {
+        var $usuarioEnRanking = datosRanking[$posicionUsuario];
+        // console.log(`Iteración ${$posicionUsuario + 1}: Usuario en el ranking - ID: ${$usuarioEnRanking.id}, NickName: ${$usuarioEnRanking.NickName}`);
+        // console.log(`Usuario ID ${userId}`);
+        if ($usuarioEnRanking.id == userId) {
+            // console.log(`¡Usuario logueado encontrado en el ranking en la posición ${$posicionUsuario + 1}!`);
+            break;
+        }
+    }
+
+
+  const usuarioLog = datosRanking[$posicionUsuario];
 
   return (
     <body className='body'>
@@ -51,13 +59,19 @@ useEffect(() => {
                         </tr>
                     </thead>
                     <tbody>
-                    {/* Mostrar la posicion del usuario */}
-                        {/* <tr key={i} className={claseDestacada}>
-                            <td className='position'><strong>{i + 1}</strong></td>
+                        
+                    {usuarioLog ? (
+                        <tr className='you'>
+                            <td className='position'><strong>{$posicionUsuario + 1}</strong></td>
                             <td><img src={ImagenUsuario} alt="Imagen de usuario" />Tu</td>
-                            <td>{item.racha}</td>
-                        </tr> */}
-
+                            <td>{usuarioLog.racha}</td>
+                        </tr>
+                        ) : (
+                        <tr>
+                            <td colSpan="3">El usuario no está en el ranking</td>
+                        </tr>
+                    )}
+                        
                         {datosRanking.map((item, index) => (
                             <tr key={index}>
                                 <td className='position'><strong>{$posicion += 1}</strong></td>
