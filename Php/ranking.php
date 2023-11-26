@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 // Obtener datos del ranking
 // Obtener datos del ranking con nombres de usuarios
-$consulta = "SELECT ranking.racha, u.nombre FROM ranking
+$consulta = "SELECT ranking.racha, u.NickName, u.id FROM ranking
              INNER JOIN Usuario as u ON ranking.id_usuario = u.id
              ORDER BY ranking.racha DESC";
 $resultado = $conn->query($consulta);
