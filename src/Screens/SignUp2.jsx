@@ -56,7 +56,7 @@ export default function SignUp2(UserId) {
                      console.log('Registro exitoso');
                      if (response.data.redirect) {
                          // Redirige a la página especificada
-                        navigate('/main');
+                        navigate('/login');
                      }
                  } else {
                      console.error('Error al registrar:', response.data.message);
