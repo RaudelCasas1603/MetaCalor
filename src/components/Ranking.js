@@ -25,7 +25,15 @@ useEffect(() => {
     }
   };
 
-  var $posicion = 0;
+  var $posicion = 0, $posicionUsuario;
+
+//Apartado para poder obtener la posicion del usuario
+//   for($posicionUsuario = 0; $posicionUsuario < datosRanking.length; $posicionUsuario++){
+//     const item = datosRanking[$posicionUsuario];
+//     const esUsuarioLog = userId ==item.id;
+//     const claseDestacada = esUsuarioLog ? 'usuario-log': '';
+//   }
+  
 
   return (
     <body className='body'>
@@ -43,7 +51,13 @@ useEffect(() => {
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    {/* Mostrar la posicion del usuario */}
+                        {/* <tr key={i} className={claseDestacada}>
+                            <td className='position'><strong>{i + 1}</strong></td>
+                            <td><img src={ImagenUsuario} alt="Imagen de usuario" />Tu</td>
+                            <td>{item.racha}</td>
+                        </tr> */}
+
                         {datosRanking.map((item, index) => (
                             <tr key={index}>
                                 <td className='position'><strong>{$posicion += 1}</strong></td>
