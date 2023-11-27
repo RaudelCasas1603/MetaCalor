@@ -184,6 +184,32 @@ estilos de la utilidad
     background: linear-gradient(45deg, #FF2DFD, #40A7FF);
 }
 
+.boton-cerrar-perfil {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+
+}
+
+.boton-perfil {
+    padding: 10px 20px;
+    background-color: #1f354b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .boton-perfil:hover {
+    background-color: #3b658f;
+  }
+  
+  .boton-perfil:active {
+    background-color: #3b658f;
+  }
 /* adactacion a dispositivos */
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
