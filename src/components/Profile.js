@@ -57,7 +57,7 @@ export default function Profile(){
                     <ul class="lista-datos">
                         <li><i class="icono fas fa-map-marker-alt"></i> Estatura: {item.Estatura}</li>
                         <li><i class="icono fas fa-calendar-alt"></i> Edad: {item.Edad} </li>
-                        <li><i class="icono fas fa-user-check"></i> Peso: {item.Edad} </li>
+                        <li><i class="icono fas fa-user-check"></i> Peso: {item.Peso} </li>
                         <li><i class="icono fas fa-share-alt"></i> IMC: {item.IMC}</li>
                     </ul>
                 </div>
