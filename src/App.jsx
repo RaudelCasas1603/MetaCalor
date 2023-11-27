@@ -28,6 +28,7 @@ const navArrayLinks2 = [
   { title: "Menu", path: "/main" },
   { title: "Ranking", path: "/ranking" },
   { title: "Perfil", path: "/profile" },
+
 ];
 
 const App = () => {
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} setUserId={setUserId} />} />
           <Route path="/signup2" element={<SignUp2 UserId={UserId}/>}/>
           {loggedIn ? <Route path="/ranking" element={<Ranking />}/> : <Route path="/ranking" element={<Ups />}/> }
-          {loggedIn ? <Route path="/profile" element={<Profile />}/> : <Route path="/profile" element={<Ups />}/> }
+          {loggedIn ? <Route path="/profile" element={<Profile setLoggedIn={setLoggedIn} />}/> : <Route path="/profile" element={<Ups />}/> }
           {loggedIn ? <Route path="/Main" element={<Main UserId={UserId}/>}/> : <Route path="/Main" element={<Ups />}/> }
           {loggedIn ? <Route path="/FoodRecord" element={<FoodRecord />}/> : <Route path="/FoodRecord" element={<Ups />}/> }
           {loggedIn ? <Route path="/FoodRegister" element={<FoodRegister />}/> : <Route path="/FoodRegister" element={<Ups />}/> }

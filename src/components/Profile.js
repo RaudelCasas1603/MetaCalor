@@ -4,13 +4,16 @@ import './styles/ProfileStyle.css'
 import axios from 'axios';
 import { useState } from "react";
 import { useAuth} from "../../src/AuthContext";
+import { useNavigate } from "react-router";
+
 //import { Margin } from "@mui/icons-material";
 
 
-export default function Profile(){
+export default function Profile( {setLoggedIn}){
 
 
-    const { userId }  = useAuth();
+    const { userId, logout }  = useAuth();
+    const navigate = useNavigate();
 
     const [datosPerfil, setDatosPerfil] = useState([]);
     useEffect(() => {
@@ -27,6 +30,13 @@ export default function Profile(){
         } catch (error) {
           console.error('Error fetching profile data', error);
         }
+      };
+
+      const handleLogout = () => {
+        // Clear user ID and navigate to the Welcome page
+        logout();
+        setLoggedIn(false);
+        navigate('/');
       };
       
 
@@ -66,6 +76,10 @@ export default function Profile(){
                     <a href="#" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
                     <a href="#" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
                     <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+                </div>
+
+                <div class="boton-cerrar-perfil">
+                    <button type="button" class="boton-perfil" onClick={handleLogout}>Cerrar Sesión</button>
                 </div>
             </div>
             ))}
