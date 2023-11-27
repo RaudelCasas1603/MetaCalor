@@ -11,10 +11,10 @@ import imagen3 from '../components/images/prote.png';
 
 const Main = () => {
   const { userId } = useAuth();
-  
-
   const [datosPerfil, setDatosPerfil] = useState([]);
   const [datosPerfilNoActuales, setDatosNoActuales] = useState([]);
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
@@ -43,13 +43,24 @@ const Main = () => {
 
   // Verificar si datosPerfil está vacío y asignar valores predeterminados
   const perfilData = datosPerfil.length > 0 ? datosPerfil[0] : {
+    caloriasRegistradas: 0,
     carbohidratosRegistrados: 0,
     grasasRegistradas: 0,
     proteinasRegistradas: 0,
-    caloriasMantenibles: datosPerfil.caloriasMantenibles,
     // Agrega más campos con sus valores predeterminados si es necesario
   };
+  useEffect(() => {
+    // Esta función se ejecuta cuando el componente se monta
+    if (datosPerfil.length > 0 && datosPerfilNoActuales.length > 0) {
+      const caloriasActuales = datosPerfil[0].caloriasRegistradas;
+      const caloriasMantenibles = datosPerfilNoActuales[0].caloriasMantenibles;
 
+      if (caloriasActuales > caloriasMantenibles) {
+        setMostrarAlerta(true);
+      }
+    }
+  }, [datosPerfil, datosPerfilNoActuales]); // Se ejecuta cuando datosPerfil o datosNoActuales cambian
+  
   return (
     <>
       <div className="container">
@@ -73,6 +84,11 @@ const Main = () => {
         <h5 className="rankingBottom position-absolute">Ranking</h5>
         <RankingBottom />
         <Bottoms />
+        {mostrarAlerta &&(
+          <div className="advertencia">
+            <h1>hola</h1>
+          </div>
+        )}
       </div>
     </>
   );

@@ -115,9 +115,7 @@ const handleSubmit=(event)=>{
                 console.log(response);
                 if (response.data.success) {
                     console.log('Registro exitoso');
-                if (response.data.redirect) {
                     navigate('/main');
-                }
             } else {
                 console.error('Error al registrar:', response.data.message);
             }
