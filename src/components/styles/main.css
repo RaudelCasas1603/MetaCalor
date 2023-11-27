@@ -80,6 +80,14 @@ body {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     
 }
+
+.line5{
+    position: relative;
+    border: 0.5px solid #16A085;
+    top: 15px;
+    width: 250px;
+    left: 100px;
+}
 .grasasCounter{
     top: 190px;
 } 
@@ -128,6 +136,61 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
+}
+
+.contenedorAdvertencia{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+}
+.advertencia{
+    display: flex;
+    margin-top: 180px;
+    margin-left: 375px;
+    background-color: #E4E7EB;
+    height: 270px;
+    width: 620px;
+    border-radius: 50px;
+    border: solid #16A085 1px;
+    visibility: hidden; /* Cambiado a hidden inicialmente */
+    transition: visibility 0s ease-in-out; /* Añadida transición para opacity */
+}
+
+.advertencia.mostrar {
+    visibility: visible; /* Cambiado a visible cuando se añade la clase mostrar */
+  }
+.iconAdvert{
+    width: 250px;
+}
+.advertencia h3{
+    color: #34495E;
+    margin-top: 60px;
+    margin-left: 50px;
+    font-weight: bold;
+}
+.consejo{
+    position: absolute;
+    width: 30%;
+    left: 550px;
+    top:270px;
+}
+.consejo h5{
+    text-align: center;
+    color: #34495E;
+    margin-top: 45px;
+    margin-left: 50px;
+}
+
+.aviso{
+    text-align: center;
+    box-shadow: #E4E7EB;
+    color:#E4E7EB;
+    margin-top: 30px;
+    font-size: 20px;
 }
 
 /* Media Query for smaller screens */

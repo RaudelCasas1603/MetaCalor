@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import axios from "axios";
 import { useAuth } from "../AuthContext.js";
 import Count from "../components/count.jsx";
@@ -8,13 +8,14 @@ import '../components/styles/main.css';
 import imagen1 from '../components/images/carbo.png';
 import imagen2 from '../components/images/grasas.png';
 import imagen3 from '../components/images/prote.png';
+import imagenAdvertencia from '../components/images/advertenciaIcon.png'
 
 const Main = () => {
   const { userId } = useAuth();
   const [datosPerfil, setDatosPerfil] = useState([]);
   const [datosPerfilNoActuales, setDatosNoActuales] = useState([]);
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
-
+  const contenedorRef = useRef(null);
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
@@ -51,16 +52,16 @@ const Main = () => {
   };
   useEffect(() => {
     // Esta función se ejecuta cuando el componente se monta
-    if (datosPerfil.length > 0 && datosPerfilNoActuales.length > 0) {
+    if (datosPerfil.length >0) {
       const caloriasActuales = datosPerfil[0].caloriasRegistradas;
-      const caloriasMantenibles = datosPerfilNoActuales[0].caloriasMantenibles;
-
-      if (caloriasActuales > caloriasMantenibles) {
+      if (caloriasActuales > 500) {
         setMostrarAlerta(true);
       }
     }
-  }, [datosPerfil, datosPerfilNoActuales]); // Se ejecuta cuando datosPerfil o datosNoActuales cambian
-  
+  }, [datosPerfil]); // Se ejecuta cuando datosPerfil o datosNoActuales cambian
+   const cerrarAlerta = () =>{
+      setMostrarAlerta(false);
+   } 
   return (
     <>
       <div className="container">
@@ -75,18 +76,25 @@ const Main = () => {
         <h5 className="macro-3 position-absolute">Proteínas</h5>
         <div className="line2"></div><p className="proteCounter">{perfilData.proteinasRegistradas}g</p>
         <Count />
-        <h5 className="kcalMant position-absolute">Calorías Mantenibles</h5>
+        <h5 className="kcalMant position-absolute">Mantenibles</h5>
         {datosPerfilNoActuales.map((item, index)=>(
         <div>
-          <div className="line4"></div><p className="kcalManteniblesCounter">{item.caloriasMantenibles}</p>
+          <div className="line4"></div><p className="kcalManteniblesCounter">{item.caloriasMantenibles}kcals</p>
         </div>
         ))}
         <h5 className="rankingBottom position-absolute">Ranking</h5>
         <RankingBottom />
         <Bottoms />
         {mostrarAlerta &&(
-          <div className="advertencia">
-            <h1>hola</h1>
+          <div className="contenedorAdvertencia" onClick={cerrarAlerta}>
+            <div className={`advertencia ${mostrarAlerta ? 'mostrar' : ''}`}>
+              <img className="iconAdvert" src={imagenAdvertencia}></img><h3>¡ADVERTENCIA!</h3>
+              <div className="consejo">
+                <div className="line5"></div>
+                <h5>PRESTA ATENCIÓN A LO QUE CONSUMES, TU CONSUMO DE CALORÍAS ES EXCESIVO</h5>
+              </div>
+            </div>
+            <h3 className="aviso">Da click en cualquier lugar de la pantalla.</h3>
           </div>
         )}
       </div>
