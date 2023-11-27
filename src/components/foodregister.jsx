@@ -10,8 +10,11 @@ import frutas from './images/frutas.png'
 import lacteos from './images/lacteos.png'
 import grasasSin from './images/grasasSin.png'
 import './styles/registroAlimentoStyle.css'
+import { useAuth } from "../AuthContext.js";
 
-export default function FoodRegister(UserId){
+
+export default function FoodRegister(  ){
+
 const[caloriasRegistradas, setCaloriasRegistradas]=useState(0.0);
 const[proteinasRegistradas, setProteRegistradas]=useState(0.0);
 const[grasas, setGrasasRegistradas]=useState(0.0);
@@ -24,6 +27,9 @@ const[alimentos, setAlimentos]=useState([]);
 const[alimentosFiltrados, setFiltrados]=useState([]);
 const[categoriaActual, setCatActual]=useState('Todas');
 const[miAlimento, setMiAlimento]=useState([]);
+
+const { userId } = useAuth();
+
 
 useEffect(()=>{ //HACE LA CONSULTA DE TODOS LOS ALIMENTOS DE LA BASE DE DATOS
     fetch('https://metacalor-e.000webhostapp.com/alimentos.php')
@@ -96,14 +102,15 @@ const handleSubmit=(event)=>{
         data.append('proteinasRegistradas', sumaProteinas);
         data.append('grasas', sumaGrasas);
         data.append('carbohidratos', sumaCarbohidratos);
-        data.append('UserId', (UserId.UserId));
+        data.append('UserId', userId);
          console.log({
            proteinasRegistradas: sumaProteinas,
            caloriasRegistradas: sumaCalorias,
            grasas: sumaGrasas,
            carbohidratos: sumaCarbohidratos,
+            UserId: userId,
          });
-         axios.post('https://metacalor-e.000webhostapp.com/Access/registrarCalorias.php', data)
+         axios.post('https://metacalor-e.000webhostapp.com/registrarCalorias.php', data)
             .then(response => {
                 console.log(response);
                 if (response.data.success) {

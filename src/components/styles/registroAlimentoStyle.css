@@ -7,7 +7,7 @@
 }
 .RegisterFood-categories{
     margin-top: 30px;
-    margin-left: 780px;
+    margin-left: 810px;
     width: 40%;
     height: 140px;
     border-radius: 50px;
@@ -80,7 +80,7 @@ img{
 .RegisterFood-foodlist{
     display: flex;
     margin-top: 30px;
-    margin-left: 780px;
+    margin-left: 810px;
     width: 40%;
     height: 300px;
     border-top-left-radius: 50px;
@@ -115,11 +115,14 @@ img{
   .FormRegister{
     margin-left: 150px;
     margin-bottom: 70px;
+    margin-left: 50px;
   }
   .FormRegister button{
     display: relative;
     top: 70px;
     right: 300px;
+    margin-left: -150px;
+
   }
 
 @media only screen and (max-width: 1200px) {
