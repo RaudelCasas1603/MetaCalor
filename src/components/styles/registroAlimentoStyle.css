@@ -1,13 +1,12 @@
 /* CONTENEDOR DE CATEGORÍAS*/
 .RegisterFood-container{
     color: #34495e;
-    
     flex-wrap: wrap;
     margin: auto;
 }
 .RegisterFood-categories{
     margin-top: 30px;
-    margin-left: 810px;
+    margin-left: 790px;
     width: 40%;
     height: 140px;
     border-radius: 50px;
@@ -40,7 +39,7 @@ img{
     border: #34495e;
 }
 
-/* CONTENEDOR DE LA LISTA DE ALIMENTOS */
+/* ALIMENTOS SELECCIONADOS */
 
 .RegisterFood-foodtable{
     left: 50px;
@@ -63,7 +62,8 @@ img{
     padding: 15px;
     justify-content: center;
     }
-/* ALIMENTOS SELECCIONADOS */
+
+    /* LISTA DE ALIMENTOS */    
 
 .myFoodTable{
     width: 100%;
@@ -80,7 +80,7 @@ img{
 .RegisterFood-foodlist{
     display: flex;
     margin-top: 30px;
-    margin-left: 810px;
+    margin-left: 790px;
     width: 40%;
     height: 300px;
     border-top-left-radius: 50px;

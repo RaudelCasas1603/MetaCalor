@@ -9,15 +9,27 @@ import imagen1 from '../components/images/carbo.png';
 import imagen2 from '../components/images/grasas.png';
 import imagen3 from '../components/images/prote.png';
 
-const Main = ({ UserId }) => {
+const Main = () => {
   const { userId } = useAuth();
+  
 
   const [datosPerfil, setDatosPerfil] = useState([]);
+  const [datosPerfilNoActuales, setDatosNoActuales] = useState([]);
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
+    obtenerDatosPerfilNoActuales();
   }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
-
+  const obtenerDatosPerfilNoActuales = async () => {
+    try {
+      console.log("Fetching data for user ID: " + userId);
+      const answer = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
+      console.log("Response data:", answer.data);
+      setDatosNoActuales(answer.data);
+    } catch (error) {
+      console.error('Error fetching profile data', error);
+    }
+  }
   const obtenerDatosPerfil = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
@@ -34,7 +46,7 @@ const Main = ({ UserId }) => {
     carbohidratosRegistrados: 0,
     grasasRegistradas: 0,
     proteinasRegistradas: 0,
-    caloriasMantenibles: 0,
+    caloriasMantenibles: datosPerfil.caloriasMantenibles,
     // Agrega más campos con sus valores predeterminados si es necesario
   };
 
@@ -50,10 +62,14 @@ const Main = ({ UserId }) => {
         <div className="line1"></div><p className="grasasCounter">{perfilData.grasasRegistradas} g</p>
         <img src={imagen3} alt="Imagen" className="position-absolute posicion-prote" width={'115px'} />
         <h5 className="macro-3 position-absolute">Proteínas</h5>
-        <div className="line2"></div><p className="proteCounter">{perfilData.proteinasRegistradas} g</p>
+        <div className="line2"></div><p className="proteCounter">{perfilData.proteinasRegistradas}g</p>
         <Count />
         <h5 className="kcalMant position-absolute">Calorías Mantenibles</h5>
-        <div className="line4"></div><p className="kcalManteniblesCounter">{perfilData.caloriasMantenibles}</p>
+        {datosPerfilNoActuales.map((item, index)=>(
+        <div>
+          <div className="line4"></div><p className="kcalManteniblesCounter">{item.caloriasMantenibles}</p>
+        </div>
+        ))}
         <h5 className="rankingBottom position-absolute">Ranking</h5>
         <RankingBottom />
         <Bottoms />
