@@ -45,7 +45,9 @@ export default function Profile( {setLoggedIn}){
             <div class="perfil-usuario-header">
                 <div class="perfil-usuario-portada">
                     <div class="perfil-usuario-avatar">
-                        <img src={ImagenUsuario} alt="img-avatar"/>
+                        {datosPerfil.map((item, index) => (
+                          <img key={index} src={item.ImagenPerfil} alt="img-avatar" />
+                        ))}
                         <button type="button" class="boton-avatar">
                             <i class="far fa-image"></i>
                         </button>
@@ -72,11 +74,11 @@ export default function Profile( {setLoggedIn}){
                     </ul>
                 </div>
 
-                <div class="redes-sociales">
+                {/* <div class="redes-sociales">
                     <a href="#" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
                     <a href="#" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
                     <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
-                </div>
+                </div> */}
 
                 <div class="boton-cerrar-perfil">
                     <button type="button" class="boton-perfil" onClick={handleLogout}>Cerrar Sesión</button>

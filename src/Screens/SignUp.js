@@ -123,6 +123,15 @@ export default function SignUp({setLoggedIn, setUserId}) {
                   autoComplete="new-password"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="profileImage"
+                  label="URL de la imagen de perfil"
+                  name="profileImage"
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"

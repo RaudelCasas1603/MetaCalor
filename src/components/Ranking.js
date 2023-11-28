@@ -63,7 +63,7 @@ useEffect(() => {
                     {usuarioLog ? (
                         <tr className='you'>
                             <td className='position'><strong>{$posicionUsuario + 1}</strong></td>
-                            <td><img src={ImagenUsuario} alt="Imagen de usuario" />Tu</td>
+                            <td><img src={usuarioLog.ImagenPerfil} alt="Imagen de usuario" />Tu</td>
                             <td>{usuarioLog.racha}</td>
                         </tr>
                         ) : (
@@ -75,7 +75,7 @@ useEffect(() => {
                         {datosRanking.map((item, index) => (
                             <tr key={index}>
                                 <td className='position'><strong>{$posicion += 1}</strong></td>
-                                <td><img src={ImagenUsuario}/>{item.NickName}</td>
+                                <td><img src={item.ImagenPerfil}/>{item.NickName}</td>
                                 <td>{item.racha}</td>
                             </tr>
                         ))}
