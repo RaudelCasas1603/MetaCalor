@@ -125,7 +125,6 @@ export default function SignUp({setLoggedIn, setUserId}) {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required
                   fullWidth
                   id="profileImage"
                   label="URL de la imagen de perfil"

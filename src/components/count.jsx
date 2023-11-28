@@ -17,7 +17,7 @@ const Count = () => {
   const obtenerDatosPerfil = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
-      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/loadData.php?id=' + userId);
+      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
       console.log("Response data:", respuesta.data);
       setDatosPerfil(respuesta.data);
     } catch (error) {
