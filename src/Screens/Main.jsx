@@ -22,20 +22,9 @@ const Main = () => {
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
-    obtenerDatosPerfilNoActuales();
     obtenerDatosRanking();
   }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
 
-  const obtenerDatosPerfilNoActuales = async () => {
-    try {
-      console.log("Fetching data for user ID: " + userId);
-      const answer = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
-      console.log("Response data:", answer.data);
-      setDatosNoActuales(answer.data);
-    } catch (error) {
-      console.error('Error fetching profile data', error);
-    }
-  }
   const obtenerDatosPerfil = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
@@ -95,11 +84,6 @@ const Main = () => {
         <div className="line2"></div><p className="proteCounter">{perfilData.proteinasRegistradas}g</p>
         <Count />
         <h5 className="kcalMant position-absolute">Mantenibles</h5>
-        {datosPerfilNoActuales.map((item, index)=>(
-        <div>
-          <div className="line4"></div><p className="kcalManteniblesCounter">{item.caloriasMantenibles}kcals</p>
-        </div>
-        ))}
         <h5 className="rankingBottom position-absolute">Ranking</h5>
         <RankingBottom />
         <Bottoms />
