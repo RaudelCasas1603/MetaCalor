@@ -23,6 +23,7 @@ export default function SignUp2(UserId) {
 
         const [sexo, setSexo] = useState('');
         const [actividad, setActividad] = useState('');
+        const [meta, setMeta] = useState('');
 
         const handleChange = (event) => {
           setSexo(event.target.value);
@@ -40,6 +41,7 @@ export default function SignUp2(UserId) {
         const data = new FormData(event.currentTarget);
         data.append('sexo', sexo);
         data.append('actividad', actividad);
+        data.append('meta', meta);
 
         data.append('UserId', (UserId.UserId));
           console.log({
