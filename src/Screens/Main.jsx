@@ -15,12 +15,17 @@ const Main = () => {
   const [datosPerfil, setDatosPerfil] = useState([]);
   const [datosPerfilNoActuales, setDatosNoActuales] = useState([]);
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [ranking, setDatosRanking] = useState([]);
+
   const contenedorRef = useRef(null);
+
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
     obtenerDatosPerfilNoActuales();
+    obtenerDatosRanking();
   }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
+
   const obtenerDatosPerfilNoActuales = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
@@ -39,6 +44,19 @@ const Main = () => {
       setDatosPerfil(respuesta.data);
     } catch (error) {
       console.error('Error fetching profile data', error);
+    }
+  };
+
+  const obtenerDatosRanking = async () => {
+    try {
+      // Realiza la solicitud GET al servidor
+      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/rankingTop5.php');
+      // Imprime los datos en la consola para verificar
+      console.log(respuesta.data);
+      // Actualiza el estado con los datos recibidos
+      setDatosRanking(respuesta.data);
+    } catch (error) {
+      console.error('Error al obtener datos del ranking', error);
     }
   };
 

@@ -1,0 +1,19 @@
+.barraRanking{
+    height: 370px;
+}
+
+.barraRanking-contenido{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+    margin-top: 5px;
+    margin-left: -27px;
+}
+
+.ranking-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 45px;
+}

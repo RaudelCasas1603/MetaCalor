@@ -24,11 +24,11 @@ export default function FoodRecord(){
                     <img className="Image__Food--img" src={customFood} alt="customFood" />
                     <button className="OpcPlatillo">Utilizar alimentos propios</button>
                 </div>
-                <div className="VerticalLine"></div> {/* Agregamos un div para la línea vertical */}
+                {/* <div className="VerticalLine"></div> Agregamos un div para la línea vertical
                 <div>
                     <img className="Image__Food--img" src={food} alt="customFood" />
                     <button className="OpcPlatillo">Utilizar Alimentos Base</button>
-                </div>
+                </div> */}
             </div>
         </div>
     );
