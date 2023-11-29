@@ -81,13 +81,7 @@ body {
     
 }
 
-.line5{
-    position: relative;
-    border: 0.5px solid #16A085;
-    top: 15px;
-    width: 250px;
-    left: 100px;
-}
+
 .grasasCounter{
     top: 190px;
 } 
@@ -138,6 +132,8 @@ body {
     font-weight: bold;
 }
 
+
+/* ALERTA DE EXCESO DE CALORÍAS */
 .contenedorAdvertencia{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -147,7 +143,32 @@ body {
     left: 0;
     top: 0;
 }
+@keyframes miAnimacion {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+    
+      40% {
+        transform: translateY(-20px);
+      }
+    
+      60% {
+        transform: translateY(-15px);
+      }
+  }
+  @keyframes aparecer {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 .advertencia{
+    animation: miAnimacion 3s ease-in-out infinite, aparecer 0.5s ease-out;
     display: flex;
     margin-top: 180px;
     margin-left: 375px;
@@ -156,13 +177,7 @@ body {
     width: 620px;
     border-radius: 50px;
     border: solid #16A085 1px;
-    visibility: hidden; /* Cambiado a hidden inicialmente */
-    transition: visibility 0s ease-in-out; /* Añadida transición para opacity */
 }
-
-.advertencia.mostrar {
-    visibility: visible; /* Cambiado a visible cuando se añade la clase mostrar */
-  }
 .iconAdvert{
     width: 250px;
 }
@@ -172,17 +187,23 @@ body {
     margin-left: 50px;
     font-weight: bold;
 }
+.line5{
+    position: relative;
+    border: 0.5px solid #16A085;
+    top: 110px;
+    width: 250px;
+    left: 30px;
+}
 .consejo{
     position: absolute;
-    width: 30%;
-    left: 550px;
-    top:270px;
+    width: 60%;
+    left: 250px;
 }
 .consejo h5{
     text-align: center;
     color: #34495E;
-    margin-top: 45px;
-    margin-left: 50px;
+    margin-top: 130px;
+    margin-right: 50px;
 }
 
 .aviso{
@@ -198,7 +219,21 @@ body {
     .nutrientes, .posicion-carbo, .posicion-grasa, .posicion-prote,
     .macro-1, .macro-2, .macro-3, .rankingBottom,
     .line1, .grasasCounter, .line2, .proteCounter,
-    .line3, .carboCounter, .kcalMant, .kcalManteniblesCounter {
+    .line3,.line4, .carboCounter, .kcalMant, .kcalManteniblesCounter {
         left: 10px;
     }
+    .contenedorAdvertencia{
+        padding: 20px;
+    }
+    .advertencia{
+        width: auto;
+        height: auto;
+        margin: auto;
+        margin-top: 180px;
+    }
+    .iconAdvert{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
