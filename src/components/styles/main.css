@@ -216,24 +216,27 @@ body {
 
 /* Media Query for smaller screens */
 @media screen and (max-width: 900px) {
-    .nutrientes, .posicion-carbo, .posicion-grasa, .posicion-prote,
+    .nutrientes,
+    .posicion-carbo, .posicion-grasa, .posicion-prote,
     .macro-1, .macro-2, .macro-3, .rankingBottom,
     .line1, .grasasCounter, .line2, .proteCounter,
-    .line3,.line4, .carboCounter, .kcalMant, .kcalManteniblesCounter {
-        left: 10px;
+    .line3, .line4, .carboCounter, .kcalMant, .kcalManteniblesCounter {
+      left: 10px;
     }
-    .contenedorAdvertencia{
-        padding: 20px;
+  
+    .contenedorAdvertencia {
+      padding: 20px;
     }
-    .advertencia{
-        width: auto;
-        height: auto;
-        margin: auto;
-        margin-top: 180px;
+  
+    .advertencia {
+      width: auto;
+      height: auto;
+      margin: auto;
+      margin-top: 180px;
     }
-    .iconAdvert{
-        margin-left: auto;
-        margin-right: auto;
+  
+    .iconAdvert {
+      margin-left: auto;
+      margin-right: auto;
     }
-
-}
+  }

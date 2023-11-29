@@ -1,56 +1,67 @@
 import React, { useState, useEffect} from "react";
+import { useNavigate } from "react-router"
 import './styles/FoodAdd.css';
 
 export default function FoodAdd(){
+  const navigate=useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    proteines: "",
+    calories: "",
+    carbohydrates: "",
+    fats: "",
+    quantity: "",         // Nuevo campo
+    unit: "",             // Nuevo campo
+    gross_weight: "",     // Nuevo campo
+    net_weight: "",       // Nuevo campo
+  });
 
-    const [formData, setFormData] = useState({
+  const [serverResponse, setServerResponse] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const queryString = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch(`https://metacalor-e.000webhostapp.com/foodAdd.php?${queryString}`, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+      setServerResponse(data);
+      setShowAlert(true);
+      setFormData({
         name: "",
+        proteines: "",
         calories: "",
         carbohydrates: "",
         fats: "",
-        category: "",
+        quantity: "",
+        unit: "",
+        gross_weight: "",
+        net_weight: "",
       });
-
-      const [serverResponse, setServerResponse] = useState(null);
-      const [showAlert, setShowAlert] = useState(false);
-    
-      const handleInputChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value,
-        });
-      };
-      const handleCategoryChange = (category) => {
-        setFormData({
-            ...formData,
-            category: category,
-        });
-    };
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const queryString = new URLSearchParams(formData).toString();
-    
-        fetch(`https://metacalor-e.000webhostapp.com/foodAdd.php?${queryString}`, {
-          method: "GET",
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            setServerResponse(data);
-            setShowAlert(true);
-            setFormData({
-              name: "",
-              calories: "",
-              carbohydrates: "",
-              fats: "",
-              category: "",
-            });
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      };
+      setTimeout(() => {
+        navigate("/main"); // Reemplaza '/otra_pagina' con tu ruta deseada
+      }, 3000);
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      // Puedes manejar el error de la manera que prefieras, por ejemplo, mostrar un mensaje al usuario.
+    }
+  };
     
       useEffect(() => {
         if (showAlert) {
@@ -58,16 +69,14 @@ export default function FoodAdd(){
             setShowAlert(false);
             setServerResponse(null);
           }, 10000);
-        
-        return () => clearTimeout(timeout);
-    }
-  }, [showAlert]);
+      
+          return () => clearTimeout(timeout);
+        }
+      }, [showAlert]);
+      
  
     return(
-        <div class="form-body">    
-            <div class="form-holder">
-                <div class="form-content">
-                    <div class="form-items">
+                    <div class="form">
                         <h3>Registra un Nuevo Alimento</h3>
                         <p>Rellena toda la informacion</p>
                         <form class="requires-validation" onSubmit={handleSubmit} novalidate>
@@ -79,9 +88,14 @@ export default function FoodAdd(){
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" name="calories" placeholder="Proteinas" required onChange={handleInputChange} />
+                            <input class="form-control" type="text" name="proteines" placeholder="Proteinas" required onChange={handleInputChange} />
                                 <div class="valid-feedback">Proteines field is valid!</div>
                                 <div class="invalid-feedback">Proteines field cannot be blank!</div>
+                        </div>
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" name="calories" placeholder="Calorias" required onChange={handleInputChange} />
+                                <div class="valid-feedback">Calories field is valid!</div>
+                                <div class="invalid-feedback">Calories field cannot be blank!</div>
                         </div>
                         <div class="col-md-12">
                             <input class="form-control" type="text" name="carbohydrates" placeholder="Carbohidratos" required onChange={handleInputChange}/>
@@ -93,34 +107,17 @@ export default function FoodAdd(){
                                 <div class="valid-feedback">Fats field is valid!</div>
                                 <div class="invalid-feedback">Fats field cannot be blank!</div>
                         </div>
-
-                        <div class="col-md-12 mt-3">
-                            <label class="mb-3 mr-1" for="category">Categoria: </label>
-
-                            <input type="radio" class="btn-check" name="category" id="protein" onClick={() => handleCategoryChange('Proteinas')} />
-                            <label class="btn btn-sm btn-outline-secondary" for="protein">Proteinas</label>
-
-                            <input type="radio" class="btn-check" name="category" id="grain" onClick={() => handleCategoryChange('Granos')} />
-                            <label class="btn btn-sm btn-outline-secondary" for="grain">Granos</label>
-
-
-                            <input type="radio" class="btn-check" name="category" id="vegetables" autocomplete="off" onClick={() => handleCategoryChange('Vegetales')} />
-                            <label class="btn btn-sm btn-outline-secondary" for="vegetables">Vegetales</label>
-
-                            <input type="radio" class="btn-check" name="category" id="fruits" autocomplete="off" onClick={() => handleCategoryChange('Frutas')}/>
-                            <label class="btn btn-sm btn-outline-secondary" for="fruits">Frutas</label>
-
-                            <input type="radio" class="btn-check" name="category" id="dairy" autocomplete="off" onClick={() => handleCategoryChange('Lacteos')}/>
-                            <label class="btn btn-sm btn-outline-secondary" for="dairy">Lacteos</label>
-
-                            <div class="valid-feedback mv-up">You selected a category!</div>
-                            <div class="invalid-feedback mv-up">Please select a category!</div>
-                        </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-                        <label class="form-check-label">Confirmo que los datos son correctos</label>
-                        <div class="invalid-feedback">Porfavor confirma que los datos ingresados son correctos!</div>
+                    <div className="col-md-12">
+                      <input className="form-control" type="text" name="quantity" placeholder="Cantidad" onChange={handleInputChange} />
+                    </div>
+                    <div className="col-md-12">
+                      <input className="form-control" type="text" name="unit" placeholder="Unidad" onChange={handleInputChange} />
+                    </div>
+                    <div className="col-md-12">
+                      <input className="form-control" type="text" name="gross_weight" placeholder="Peso Bruto (g)" onChange={handleInputChange} />
+                    </div>
+                    <div className="col-md-12">
+                      <input className="form-control" type="text" name="net_weight" placeholder="Peso Neto (g)" onChange={handleInputChange} />
                     </div>
                         <div class="form-button mt-3">
                             <button id="submit" type="submit" class="btn-register">Register</button>
@@ -129,13 +126,9 @@ export default function FoodAdd(){
                             <div className={`alert ${serverResponse.success ? "alert-success" : "alert-danger"}`} role="alert">
                             {serverResponse.message}
                             </div>
+
                         )}
                     </form>
                 </div>
-            </div>
-        </div>
-    
-    </div>
- 
     )    
 }

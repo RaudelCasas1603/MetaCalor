@@ -22,7 +22,7 @@ const Bottoms = () => {
       Registrar calorías
       </Link>
       <div className="linea-vertical2"></div>
-      <Link to="/FoodRecord" className="platillos">
+      <Link to="/foodAdd" className="platillos">
       <Platillos sx={{position:'absolute', marginLeft:'43px', fontSize:'30px', marginBottom:'40px'}}/>
         Agregar platillo
       </Link>

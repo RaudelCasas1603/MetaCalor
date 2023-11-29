@@ -9,6 +9,7 @@ import vegetales from './images/vegetales.png'
 import frutas from './images/frutas.png'
 import lacteos from './images/lacteos.png'
 import grasasSin from './images/grasasSin.png'
+import personalizado from './images/personalizado.png'
 import './styles/registroAlimentoStyle.css'
 import { useAuth } from "../AuthContext.js";
 
@@ -56,6 +57,7 @@ const cateUnicas={
     "Grasas sin proteínas": grasasSin,
     "Leche entera": lacteos,
     "Leche descremada": lacteos,
+    personalizado: personalizado,
 };
 const handleComidaClick= (item)=>{
     const comidaSelec= miAlimento.some((miAlimento)=>miAlimento.id === item.id);
@@ -153,7 +155,7 @@ const handleSubmit=(event)=>{
                             padding: '25px',
                             margin: '10px',
                             cursor: 'pointer',
-                         }}></button>
+                         }}>{categoria.Alimento}</button>
                     ))}
                 </div>
             </div>
