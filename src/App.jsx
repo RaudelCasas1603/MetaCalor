@@ -17,6 +17,7 @@ import FoodRecord from './components/FoodRecord';
 import FoodRegister from './components/foodregister';
 import FoodAdd from './components/foodAdd';
 import Ups from './Ups';
+import ExerciseRegister from './components/exerciseRegister';
 
 const navArrayLinks = [
   { title: "Home", path: "/" },
@@ -56,6 +57,8 @@ const App = () => {
           {loggedIn ? <Route path="/FoodRegister" element={<FoodRegister />}/> : <Route path="/FoodRegister" element={<Ups />}/> }
           {loggedIn ? <Route path="/FoodAdd" element={<FoodAdd />}/> : <Route path="/FoodAdd" element={<Ups />}/> }
           {loggedIn ? <Route path="/Report" element={<Report />}/> : <Route path="/Report" element={<Ups />}/> }
+          {/* {loggedIn ? <Route path="/Exercise" element={<ExerciseRegister />}/> : <Route path="/Exercise" element={<Ups />}/> } */}
+          <Route path='Exercise' element={<ExerciseRegister />}/>
         </Routes>
 
         <Footer />
