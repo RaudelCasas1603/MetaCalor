@@ -14,16 +14,13 @@ const Main = () => {
   const { userId } = useAuth();
   const [datosPerfil, setDatosPerfil] = useState([]);
   const [datosPerfilNoActuales, setDatosNoActuales] = useState([]);
-  const [mostrarAlerta, setMostrarAlerta] = useState(false);  
-
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const contenedorRef = useRef(null);
-
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
     obtenerDatosPerfilNoActuales();
   }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
-
   const obtenerDatosPerfilNoActuales = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
@@ -45,7 +42,6 @@ const Main = () => {
     }
   };
 
-
   // Verificar si datosPerfil está vacío y asignar valores predeterminados
   const perfilData = datosPerfil.length > 0 ? datosPerfil[0] : {
     caloriasRegistradas: 0,
@@ -63,7 +59,6 @@ const Main = () => {
       }
     }
   }, [datosPerfil]); // Se ejecuta cuando datosPerfil o datosNoActuales cambian
-  
    const cerrarAlerta = () =>{
       setMostrarAlerta(false);
    } 

@@ -17,3 +17,11 @@
     height: 70px;
     border-radius: 45px;
 }
+
+
+@media screen and (max-width: 1200) {
+    .barraRanking{
+        display: inline;
+        margin:auto;
+    }
+  }

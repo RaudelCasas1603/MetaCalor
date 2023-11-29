@@ -84,12 +84,21 @@ thead th {
     color: #16a085;
 }
 
+tbody tr{
+    transition: font-size 0.3s ease;
+    border-radius: 10px;
+}
+
 tbody tr:nth-child(even){
     background-color: #0000000b;
 }
 
 tbody tr:hover {
     background-color: #bae6dd;
+    font-size: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
 }
 
 .you{
