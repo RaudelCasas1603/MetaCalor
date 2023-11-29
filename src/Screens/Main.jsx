@@ -19,24 +19,20 @@ const Main = () => {
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
-    obtenerDatosPerfilNoActuales();
-  }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
-  const obtenerDatosPerfilNoActuales = async () => {
-    try {
-      console.log("Fetching data for user ID: " + userId);
-      const answer = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
-      console.log("Response data:", answer.data);
-      setDatosNoActuales(answer.data);
-    } catch (error) {
-      console.error('Error fetching profile data', error);
-    }
-  }
+  }, [userId]);
+
   const obtenerDatosPerfil = async () => {
     try {
-      console.log("Fetching data for user ID: " + userId);
-      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/loadData.php?id=' + userId);
-      console.log("Response data:", respuesta.data);
-      setDatosPerfil(respuesta.data);
+      const [respuestaPerfil, respuestaNoActuales] = await Promise.all([
+        axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId),
+        axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId),
+      ]);
+
+      console.log("Response data perfil:", respuestaPerfil.data);
+      console.log("Response data no actuales:", respuestaNoActuales.data);
+
+      setDatosPerfil(respuestaPerfil.data);
+      setDatosNoActuales(respuestaNoActuales.data);
     } catch (error) {
       console.error('Error fetching profile data', error);
     }
@@ -68,10 +64,10 @@ const Main = () => {
         <h5 className="nutrientes position-absolute">Registro semanal</h5>
         <img src={imagen1} alt="Imagen" className="position-absolute posicion-carbo" width={'95px'} />
         <h5 className="macro-1 position-absolute">Carbohidratos</h5>
-        <div className="line3"></div><p className="carboCounter">{perfilData.carbohidratosRegistrados} g</p>
+        <div className="line3"></div><p className="carboCounter">{perfilData.carbohidratos} g</p>
         <img src={imagen2} alt="Imagen" className="position-absolute posicion-grasa" width={'100px'} />
         <h5 className="macro-2 position-absolute">Grasas</h5>
-        <div className="line1"></div><p className="grasasCounter">{perfilData.grasasRegistradas} g</p>
+        <div className="line1"></div><p className="grasasCounter">{perfilData.grasas} g</p>
         <img src={imagen3} alt="Imagen" className="position-absolute posicion-prote" width={'115px'} />
         <h5 className="macro-3 position-absolute">Proteínas</h5>
         <div className="line2"></div><p className="proteCounter">{perfilData.proteinasRegistradas}g</p>

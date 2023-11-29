@@ -40,23 +40,13 @@ const Count = () => {
   useEffect(() => {
     console.log("Fetching data for user ID: " + userId);
     obtenerDatosPerfil();
-    obtenerDatosPerfilNoActuales();
   }, [userId]); // El segundo parámetro indica que esto solo se ejecutará al montar el componente
 
-  const obtenerDatosPerfilNoActuales = async () => {
-    try {
-      console.log("Fetching data for user ID: " + userId);
-      const answer = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
-      console.log("Response data:", answer.data);
-      setDatosNoActuales(answer.data);
-    } catch (error) {
-      console.error('Error fetching profile data', error);
-    }
-  }
+
   const obtenerDatosPerfil = async () => {
     try {
       console.log("Fetching data for user ID: " + userId);
-      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/loadData.php?id=' + userId);
+      const respuesta = await axios.get('https://metacalor-e.000webhostapp.com/loadInfo.php?id=' + userId);
       console.log("Response data:", respuesta.data);
       setDatosPerfil(respuesta.data);
     } catch (error) {
