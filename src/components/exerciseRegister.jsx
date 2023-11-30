@@ -23,6 +23,7 @@ export default function ExerciseRegister(){
         UserId: '', // Agrega cualquier otro campo que necesites
       });
 
+
     useEffect(() => {
         // Llama a la función para obtener datos del ranking al montar el componente
         obtenerDatosEjercicios();
@@ -72,11 +73,11 @@ export default function ExerciseRegister(){
       const handleSubmit=(event)=>{
           event.preventDefault();
               const data = new FormData(event.currentTarget);
-              data.append('caloriasMin', caloriasMin);
+              data.append('caloriasMin', exerciseData.caloriasMin);
               data.append('minutos', minutos);
               data.append('UserId', userId);
                console.log({
-                 caloriasMin: caloriasMin,
+                 caloriasMin: exerciseData.caloriasMin,
                  minutos: minutos,
                   UserId: userId,
                });

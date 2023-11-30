@@ -20,6 +20,7 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.7.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-router": "^6.20.0",
     "react-router-dom": "^6.20.0",
@@ -27,6 +28,7 @@
     "styled-components": "^6.1.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://metacalor-e.000webhostapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
